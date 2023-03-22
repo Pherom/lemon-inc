@@ -7,7 +7,6 @@ public class VoiceCommandEngine : MonoBehaviour
 {
     public string[] phrases;
     public ConfidenceLevel confidence = ConfidenceLevel.Medium;
-    protected string word = "right";
     private KeywordRecognizer recognizer;
 
     private void Start()
