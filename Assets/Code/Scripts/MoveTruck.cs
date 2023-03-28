@@ -23,7 +23,7 @@ public class MoveTruck : MonoBehaviour
         }
     }
 
-    public void OnDriveRequest(string[] values)
+    public void OnDriveDirectionRequest(string[] values)
     {
         switch (values[0])
         {
@@ -36,8 +36,11 @@ public class MoveTruck : MonoBehaviour
         }
     }
 
-    public void OnStopDrivingRequest(string[] values)
+    public void OnDriveStatusRequest(string[] values)
     {
-        driving = 0;
+        if (values[0] == "stop driving")
+        {
+            driving = 0;
+        }
     }
 }
