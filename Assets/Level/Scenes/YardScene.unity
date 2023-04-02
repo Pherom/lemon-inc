@@ -1686,7 +1686,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 551519549}
         m_TargetAssemblyTypeName: MoveTruck, Assembly-CSharp
-        m_MethodName: OnDriveRequest
+        m_MethodName: OnDriveDirectionRequest
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1728,7 +1728,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 551519549}
         m_TargetAssemblyTypeName: MoveTruck, Assembly-CSharp
-        m_MethodName: OnStopDrivingRequest
+        m_MethodName: OnDriveStatusRequest
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
