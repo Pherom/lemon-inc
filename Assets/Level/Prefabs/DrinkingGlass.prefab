@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 2549154871722900149}
   m_Layer: 3
   m_Name: DrinkingGlass
-  m_TagString: Untagged
+  m_TagString: Empty Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
