@@ -74,4 +74,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+
+#OMERG - SOUNDS FOLDER NOT USED 
+[Aa]ssets/Audio/Game Interface Sound Pack 2.0/ 
+[Aa]ssets/Audio/CasualGameSounds/
+
 # End of https://www.toptal.com/developers/gitignore/api/unity

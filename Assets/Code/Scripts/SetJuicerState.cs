@@ -9,6 +9,8 @@ public class SetJuicerState : MonoBehaviour
     private GameObject lemonJuicePrefab;
     private GameObject closed;
     private GameObject opened;
+    public AudioClip mistakeSound;
+    public AudioSource source; 
 
     void Start()
     {
@@ -17,8 +19,9 @@ public class SetJuicerState : MonoBehaviour
         opened.SetActive(false);
     }
 
-    public void ToggleState()
+    public void ToggleState(SelectEnterEventArgs args)
     {
+        
         if (opened.activeSelf)
         {
             //Check if lemon in socket and drinking glass in socket
@@ -26,6 +29,9 @@ public class SetJuicerState : MonoBehaviour
             {
                 if (!gameObject.GetComponent<XRSocketInteractor>().hasSelection || gameObject.GetComponent<XRSocketInteractor>().GetOldestInteractableSelected().transform.gameObject.CompareTag("Full Glass"))
                 {
+                    var controller = args.interactorObject.transform.GetComponent<ActionBasedController>();
+                    HapticController.SendHaptics(controller, 0.6f, 1f);
+                    source.PlayOneShot(mistakeSound);
                     return;
                 }
 
