@@ -453,8 +453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32361ae263cfa1a489a3ee0085587f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderApproachPosition: {x: 4.5, y: 0.2, z: 0.5}
-  orderContactPosition: {x: 4.5, y: 0.2, z: -1}
+  orderApproachPosition: {x: 3.5, y: 0.2, z: 2}
+  orderContactPosition: {x: 4.5, y: 0.2, z: -0.95}
 --- !u!1 &111526
 GameObject:
   m_ObjectHideFlags: 0
