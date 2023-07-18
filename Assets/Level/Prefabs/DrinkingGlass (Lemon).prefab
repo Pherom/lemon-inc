@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &372192726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372192727}
+  - component: {fileID: 372192728}
+  - component: {fileID: 372192729}
+  m_Layer: 3
+  m_Name: Glass Opening
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &372192727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372192726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.256, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6266543390286781523}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &372192728
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372192726}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17604487, y: 0.016782857, z: 0.17177469}
+  m_Center: {x: -0.0006626183, y: 0.008314195, z: 0.0112478975}
+--- !u!114 &372192729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372192726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09982c68a97b96a4b88fb96550df1097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sugaredLemonadePrefab: {fileID: 4018580271042009688, guid: f854b476b3077034a9e12ea9a972e790,
+    type: 3}
 --- !u!1 &4748827959635767737
 GameObject:
   m_ObjectHideFlags: 0
@@ -6341,7 +6401,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 26
+  m_VersionIndex: 47
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6365,8 +6425,8 @@ GameObject:
   - component: {fileID: 6266543390286781523}
   - component: {fileID: 6820189204791563310}
   - component: {fileID: 5308473064276447222}
-  - component: {fileID: 4262686778380706914}
   - component: {fileID: 3334647474882118063}
+  - component: {fileID: 4262686778380706914}
   - component: {fileID: 9176559992399988822}
   - component: {fileID: 7985405517415087532}
   - component: {fileID: 3334647474882118060}
@@ -6386,13 +6446,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7974428315978801586}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0000008791684, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.032, y: 1.3924, z: -1.7767472}
   m_LocalScale: {x: 0.7034454, y: 0.62442845, z: 0.7034454}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9053852263105623673}
   - {fileID: 6811057658293143729}
+  - {fileID: 372192727}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6446,19 +6507,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4262686778380706914
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7974428315978801586}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1663893, y: 0.26640576, z: 0.1663893}
-  m_Center: {x: 0, y: 0.12893897, z: -0.000000014901161}
 --- !u!54 &3334647474882118063
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6475,6 +6523,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!65 &4262686778380706914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974428315978801586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1663893, y: 0.26640576, z: 0.1663893}
+  m_Center: {x: 0, y: 0.12893897, z: -0.000000014901161}
 --- !u!65 &9176559992399988822
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11960,7 +12021,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 10
+  m_VersionIndex: 28
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
