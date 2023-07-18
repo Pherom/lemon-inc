@@ -8,6 +8,7 @@ TagManager:
   - Full Glass
   - Empty Glass
   - Ground
+  - Sugar
   layers:
   - Default
   - TransparentFX
