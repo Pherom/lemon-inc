@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class CustomerNavMesh : MonoBehaviour
 {   
@@ -11,10 +12,14 @@ public class CustomerNavMesh : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Animator animator;
     private bool reachedOrderApproachPosition = false;
+    private bool headingToOrderContactPosition = false;
     private bool reachedOrderContactPosition = false;
     private bool reachedExitPosition = false;
     private bool isUpNext = false;
     private bool isDone = false;
+    private GameObject xrRig;
+    [SerializeField]
+    private UnityEvent reachedOrderContactPositionEvent;
 
     public Vector3 OrderContactPosition
     {
@@ -32,6 +37,11 @@ public class CustomerNavMesh : MonoBehaviour
     {
         get { return isDone; }
         set { isDone = value; }
+    }
+
+    private void Start()
+    {
+        xrRig = GameObject.Find("XR Rig");
     }
 
     private void Awake()
@@ -53,17 +63,22 @@ public class CustomerNavMesh : MonoBehaviour
             if (!reachedOrderApproachPosition)
             {
                 reachedOrderApproachPosition = true;
-                if (isUpNext)
-                {
-                    navMeshAgent.destination = orderContactPosition;
-                }
             }
 
             else if (isUpNext && !reachedOrderContactPosition)
             {
-                navMeshAgent.destination = orderContactPosition;
-                animator.SetFloat("Speed_f", 0.3f);
-                reachedOrderContactPosition = true;
+                if (!headingToOrderContactPosition)
+                {
+                    navMeshAgent.destination = orderContactPosition;
+                    animator.SetFloat("Speed_f", 0.3f);
+                    headingToOrderContactPosition = true;
+                }
+                
+                else
+                {
+                    reachedOrderContactPosition = true;
+                    reachedOrderContactPositionEvent.Invoke();
+                }
             }
 
             else if(isDone)
@@ -80,8 +95,13 @@ public class CustomerNavMesh : MonoBehaviour
 
             else
             {
+                /*if (reachedOrderContactPosition)
+                {
+                    reachedOrderContactPositionEvent.Invoke();
+                }*/
+
                 animator.SetFloat("Speed_f", 0);
-                transform.LookAt(GameObject.Find("XR Rig").transform);
+                transform.LookAt(xrRig.transform);
             }
         }
     }
