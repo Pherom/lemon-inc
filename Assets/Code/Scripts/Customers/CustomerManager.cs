@@ -24,9 +24,9 @@ public class CustomerManager : MonoBehaviour
     private GameObject[] customersWaitingAtTable;
 
     [SerializeField]
-    private bool debugOrderFinished = false;
+    private bool debugSendCustomerAway = false;
     [SerializeField]
-    private GameObject debugOrderFinishedCustomer;
+    private GameObject debugSendCustomerAwayGO;
 
     public void Start()
     {
@@ -41,9 +41,9 @@ public class CustomerManager : MonoBehaviour
             spawnCustomer();
         }
 
-        if (debugOrderFinished)
+        if (debugSendCustomerAway)
         {
-            OnOrderFinished(debugOrderFinishedCustomer);
+            SendCustomerAway(debugSendCustomerAwayGO);
         }
     }
 
@@ -75,7 +75,7 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    private void OnOrderFinished(GameObject customer)
+    public void SendCustomerAway(GameObject customer)
     {
         for (int i = 0; i < customersWaitingAtTable.Length; i++)
         {
@@ -96,7 +96,7 @@ public class CustomerManager : MonoBehaviour
                 customersInLineCount--;
 
                 spawnCustomer();
-                debugOrderFinished = false;
+                debugSendCustomerAway = false;
 
                 break;
             }

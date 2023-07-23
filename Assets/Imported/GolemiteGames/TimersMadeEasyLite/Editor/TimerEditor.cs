@@ -23,7 +23,9 @@ public class TimerEditor : Editor
         countMethod_Prop,
         startAtRuntime_Prop,
         timeRemaining_Prop,
-        onTimerEnd_Prop;
+        onTimerEnd_Prop,
+        percentageAsOrange_Prop,
+        percentageAsRed_Prop;
 
     static bool showTimeToSetInfo = true;
     static bool showDisplayInfo = false;
@@ -46,6 +48,8 @@ public class TimerEditor : Editor
         startAtRuntime_Prop = serializedObject.FindProperty("startAtRuntime");
         timeRemaining_Prop = serializedObject.FindProperty("timeRemaining");
         onTimerEnd_Prop = serializedObject.FindProperty("onTimerEnd");
+        percentageAsOrange_Prop = serializedObject.FindProperty("percentageAsOrange");
+        percentageAsRed_Prop = serializedObject.FindProperty("percentageAsRed");
     }
 
     public override void OnInspectorGUI()
@@ -115,7 +119,9 @@ public class TimerEditor : Editor
                     break;
             }
 
-
+            EditorGUILayout.Space();
+            EditorGUILayout.PropertyField(percentageAsOrange_Prop);
+            EditorGUILayout.PropertyField(percentageAsRed_Prop);
         }
         EditorGUILayout.EndFoldoutHeaderGroup();
 

@@ -62,6 +62,14 @@ public class Timer : MonoBehaviour
     bool timerRunning = false;
     bool timerPaused = false;
     public double timeRemaining;
+
+    [Range (0,100)]
+    public int percentageAsOrange;
+    [Range (0,100)]
+    public int percentageAsRed;
+
+    private bool orangeZoned = false;
+    private bool redZoned = false;
     
 
     private void Awake()
@@ -146,7 +154,19 @@ public class Timer : MonoBehaviour
     {
         if(timerRunning)
         {
-            if(countMethod == CountMethod.CountDown)
+            if (!orangeZoned && timeRemaining <= percentageAsOrange / 100f * ReturnTotalSeconds())
+            {
+                dialSlider.color = new Color(1, 0.7f, 0, 1);
+                orangeZoned = true;
+            }
+
+            else if (!redZoned && timeRemaining <= percentageAsRed / 100f * ReturnTotalSeconds())
+            {
+                dialSlider.color = Color.red;
+                redZoned = true;
+            }
+
+            if (countMethod == CountMethod.CountDown)
             {
                 CountDown();
                 if(standardSlider)
