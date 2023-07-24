@@ -6372,6 +6372,7 @@ GameObject:
   - component: {fileID: 8586408524511263302}
   - component: {fileID: 1010485391319095429}
   - component: {fileID: 4426990511804523218}
+  - component: {fileID: 2686823613311498002}
   m_Layer: 3
   m_Name: DrinkingGlass (Lemon + Sugar)
   m_TagString: Full Glass
@@ -12031,6 +12032,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9d12edcfde7128346b300e5b73bdd8ad, type: 3}
   - {fileID: 8300000, guid: 58c9b07ef2ee1f24fb303fc7bde4cba6, type: 3}
   - {fileID: 8300000, guid: c2070dcfb93d542439fbd81dc5700d4a, type: 3}
+  sugar_count: 1
 --- !u!82 &4426990511804523218
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12127,3 +12129,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2686823613311498002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018580271042009688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d46845ff4d8ba4a9ff29c19f1360a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order:
+    drinkType: 0
+    sugerCubeCount: 1
+    addedIngredient: 0

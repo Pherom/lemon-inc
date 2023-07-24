@@ -1,14 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro; 
 
 public class UpdateOrderSummaryText : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI orderDetails;
+    [SerializeField] TextMeshProUGUI sugarCount;
     public void UpdateOrderDetails(SelectEnterEventArgs args)
     {
-        orderDetails.text = "1\n2\n"+ ((char)0x221A).ToString();
+        
+        XRBaseInteractable dish = args.interactableObject as XRBaseInteractable;
+        OrderHolder orderWrapper = dish.transform.gameObject.GetComponent<OrderHolder>();
+
+        if (orderWrapper != null && sugarCount != null)
+        {
+            Order drink = orderWrapper.GetOrder();
+            Debug.Log($"Order {drink.drinkType.ToString()} with suger cubes");
+            sugarCount.text = drink.sugerCubeCount.ToString();
+        }
+       
     }
 }
