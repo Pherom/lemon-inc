@@ -5,7 +5,10 @@ using UnityEngine;
 public class VehicleSpawnManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] vehiclePrefabs;
+    private GameObject[] regularVehiclePrefabs;
+
+    [SerializeField]
+    private GameObject[] emergencyVehiclePrefabs;
 
     [SerializeField]
     private float startDelay = 2f;
@@ -25,7 +28,9 @@ public class VehicleSpawnManager : MonoBehaviour
    
     private Vector3 rightSpawnRotation = new Vector3(0f, 90f, 0f);
 
-    
+    [SerializeField]
+    [Range(0, 100)]
+    private int percentChanceForEmergencyVehicle;
 
     // Start is called before the first frame update
     void Start()
@@ -44,12 +49,26 @@ public class VehicleSpawnManager : MonoBehaviour
 
     void SpawnRandomCar()
     {
-        
 
-        // Randomly instantiate one car from Prefabs array 
-        int carIndex = (int) Random.Range(0, vehiclePrefabs.Length);
+        int percent = Random.Range(0, 100);
+        bool emergency = false;
+        int carIndex;
+        GameObject childObject;
 
-        
+        if (percent < percentChanceForEmergencyVehicle)
+        {
+            emergency = true;
+        }
+
+        // Randomly instantiate one car from Prefabs array
+        if (emergency)
+        {
+            carIndex = Random.Range(0, emergencyVehiclePrefabs.Length);
+        }
+        else
+        {
+            carIndex = Random.Range(0, regularVehiclePrefabs.Length);
+        }
 
         // probability for car to come from the left or right side 
         float leftOrRightProb = Random.Range(-1, 1);
@@ -66,13 +85,14 @@ public class VehicleSpawnManager : MonoBehaviour
             rotation = rightSpawnRotation;
         }
 
-
-
-       
-        
-      
-      
-        GameObject childObject = Instantiate(vehiclePrefabs[carIndex], position, Quaternion.Euler(rotation));
+        if (!emergency)
+        {
+            childObject = Instantiate(regularVehiclePrefabs[carIndex], position, Quaternion.Euler(rotation));
+        }
+        else
+        {
+            childObject = Instantiate(emergencyVehiclePrefabs[carIndex], position, Quaternion.Euler(rotation));
+        }
         childObject.transform.parent = gameObject.transform;
     }
 }
