@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 372192727}
   - component: {fileID: 372192728}
   - component: {fileID: 372192729}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Glass Opening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.17604487, y: 0.016782857, z: 0.17177469}
-  m_Center: {x: -0.0006626183, y: 0.008314195, z: 0.0112478975}
+  m_Size: {x: 0.17604487, y: 0.018645363, z: 0.17177469}
+  m_Center: {x: -0.00066261826, y: 0.018065952, z: 0.0112478975}
 --- !u!114 &372192729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9053852263105623673}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 6811057658293143728}
   - component: {fileID: 6811057658293143731}
   - component: {fileID: 6811057658293143730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lemon Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6401,7 +6401,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 47
+  m_VersionIndex: 74
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6432,7 +6432,8 @@ GameObject:
   - component: {fileID: 3334647474882118060}
   - component: {fileID: 6299399149295657839}
   - component: {fileID: 7206275421837695288}
-  m_Layer: 3
+  - component: {fileID: -8323481899714000220}
+  m_Layer: 6
   m_Name: DrinkingGlass (Lemon)
   m_TagString: Full Glass
   m_Icon: {fileID: 0}
@@ -12021,7 +12022,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 28
+  m_VersionIndex: 55
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -12138,3 +12139,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8323481899714000220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974428315978801586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7ee94556e037b45853dbad4dd3796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinkLemonadePrefab: {fileID: 4188814567090384984, guid: 17602db28c2506144a6fd02f5415ad27,
+    type: 3}
