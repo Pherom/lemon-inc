@@ -12151,4 +12151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ce8908b65d3df46b7051e94c4518b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mintyLemonadePrefab: {fileID: 0}
+  mintyLemonadePrefab: {fileID: 2026003106727574640, guid: 933fb8b5c0fd13a4d984b2af9f314bd2,
+    type: 3}

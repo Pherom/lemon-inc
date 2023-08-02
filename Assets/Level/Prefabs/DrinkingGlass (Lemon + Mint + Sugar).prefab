@@ -5782,7 +5782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7ee94556e037b45853dbad4dd3796d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinkLemonadePrefab: {fileID: 0}
+  pinkLemonadePrefab: {fileID: 2531655125023401302, guid: cadea6f2d648ef64a93f76ee225054b0,
+    type: 3}
 --- !u!1 &7734171795152900291
 GameObject:
   m_ObjectHideFlags: 0
