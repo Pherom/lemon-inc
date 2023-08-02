@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 570758547749860186}
   - component: {fileID: 570758547749860185}
   - component: {fileID: 570758547749860184}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Lemon + Sugar Liquid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6372,6 +6372,7 @@ GameObject:
   - component: {fileID: 8586408524511263302}
   - component: {fileID: 1010485391319095429}
   - component: {fileID: 4426990511804523218}
+  - component: {fileID: 6375237492639298098}
   m_Layer: 3
   m_Name: DrinkingGlass (Lemon + Sugar)
   m_TagString: Full Glass
@@ -6393,6 +6394,7 @@ Transform:
   m_Children:
   - {fileID: 2651423445717831059}
   - {fileID: 570758547749860187}
+  - {fileID: 3743538724112279071}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12077,3 +12079,62 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6375237492639298098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018580271042009688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7ee94556e037b45853dbad4dd3796d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinkLemonadePrefab: {fileID: 2372734898708259126, guid: c09ffcdabf6138f45b24ffe515edeb74,
+    type: 3}
+--- !u!1 &7161014446758115655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3743538724112279071}
+  - component: {fileID: 5075010877718182154}
+  m_Layer: 3
+  m_Name: Glass Opening
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3743538724112279071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7161014446758115655}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0000008791684, w: 1}
+  m_LocalPosition: {x: 0, y: 0.256, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1123996899376637881}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5075010877718182154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7161014446758115655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17604487, y: 0.016782857, z: 0.17177469}
+  m_Center: {x: -0.0006626183, y: 0.008314195, z: 0.0112478975}

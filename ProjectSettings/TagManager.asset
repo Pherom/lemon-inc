@@ -10,14 +10,15 @@ TagManager:
   - Ground
   - Sugar
   - Pink Lemonade Syrup
+  - Regular Lemonade
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Sugared Lemonade
   - Water
   - UI
-  - 
+  - Basic Lemonade
   - 
   - 
   - 
