@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 2330379435728760713}
   m_Layer: 0
   m_Name: Mint Leaf
-  m_TagString: Untagged
+  m_TagString: Mint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
