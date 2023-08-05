@@ -6372,6 +6372,7 @@ GameObject:
   - component: {fileID: 7192229450428843336}
   - component: {fileID: 1937414835830581131}
   - component: {fileID: 2992984935593745884}
+  - component: {fileID: 3760059109009094160}
   m_Layer: 0
   m_Name: DrinkingGlass (Lemon + Pink Lemonade Syrup + Mint + Sugar)
   m_TagString: Full Glass
@@ -12078,6 +12079,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3760059109009094160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531655125023401302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1897dc31efb9b1f4bb7a165c3ec488fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5586964522197168434
 GameObject:
   m_ObjectHideFlags: 0

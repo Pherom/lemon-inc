@@ -13,7 +13,10 @@ public class TurnMinty : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
             Destroy(other.gameObject);
-            Instantiate(mintyLemonadePrefab, transform.parent.transform.position, transform.parent.transform.rotation);
+            CustomerOrder orderStatus = GetComponent<OrderHolder>()?.GetOrderStatus();
+            orderStatus?.AddAdditionalIngredient();
+            GameObject newDrink = Instantiate(mintyLemonadePrefab, transform.parent.transform.position, transform.parent.transform.rotation);
+            newDrink.GetComponent<OrderHolder>()?.SetOrderStatus(orderStatus);
         }
     }
 }

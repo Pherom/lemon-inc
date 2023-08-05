@@ -12,7 +12,10 @@ public class TurnPink : MonoBehaviour
         if (other.CompareTag("Pink Lemonade Syrup"))
         {
             Destroy(transform.gameObject);
-            Instantiate(pinkLemonadePrefab, transform.position, transform.rotation);
+            CustomerOrder orderStatus = GetComponent<OrderHolder>()?.GetOrderStatus();
+            orderStatus?.SetDrinkType(DrinkType.PINK_LEMONADE);
+            GameObject newDrink = Instantiate(pinkLemonadePrefab, transform.position, transform.rotation);
+            newDrink.GetComponent<OrderHolder>()?.SetOrderStatus(orderStatus);
         }
     }
 }

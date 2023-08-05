@@ -6448,6 +6448,7 @@ GameObject:
   - component: {fileID: 6299399149295657839}
   - component: {fileID: 7206275421837695288}
   - component: {fileID: -8323481899714000220}
+  - component: {fileID: -268949718206247221}
   m_Layer: 6
   m_Name: DrinkingGlass (Lemon)
   m_TagString: Full Glass
@@ -12168,3 +12169,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pinkLemonadePrefab: {fileID: 4188814567090384984, guid: 17602db28c2506144a6fd02f5415ad27,
     type: 3}
+--- !u!114 &-268949718206247221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974428315978801586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1897dc31efb9b1f4bb7a165c3ec488fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

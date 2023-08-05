@@ -13,7 +13,10 @@ public class TurnSugared : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
             Destroy(other.gameObject);
-            Instantiate(sugaredLemonadePrefab, transform.parent.transform.position, transform.parent.transform.rotation);
+            CustomerOrder orderStatus = GetComponent<OrderHolder>()?.GetOrderStatus();
+            orderStatus?.AddSugar();
+            GameObject newDrink = Instantiate(sugaredLemonadePrefab, transform.parent.transform.position, transform.parent.transform.rotation);
+            newDrink.GetComponent<OrderHolder>()?.SetOrderStatus(orderStatus);
         }
     }
 }

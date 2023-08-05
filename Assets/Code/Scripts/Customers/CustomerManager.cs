@@ -32,18 +32,23 @@ public class CustomerManager : MonoBehaviour
     {
         customersWaitingInLine = new GameObject[customerLinePositions.Length];
         customersWaitingAtTable = new GameObject[customerOrderContactPositions.Length];
+        StartCoroutine("CustomerSpawnManager"); // 1 second
     }
 
-    public void Update()
+    IEnumerator CustomerSpawnManager()
     {
-        if (customersInLineCount < customerLinePositions.Length)
+        while (true)
         {
-            spawnCustomer();
-        }
+            yield return new WaitForSeconds(2f);
+            if (customersInLineCount < customerLinePositions.Length)
+            {
+                spawnCustomer();
+            }
 
-        if (debugSendCustomerAway)
-        {
-            SendCustomerAway(debugSendCustomerAwayGO);
+            if (debugSendCustomerAway)
+            {
+                SendCustomerAway(debugSendCustomerAwayGO);
+            }
         }
     }
 
