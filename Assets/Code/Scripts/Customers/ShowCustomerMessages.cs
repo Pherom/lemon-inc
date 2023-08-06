@@ -35,7 +35,6 @@ public class ShowCustomerMessages : MonoBehaviour
         if (messages.Count == 0)
         {
             this.SetMessages(customer.GetMessages());
-            Debug.Log(string.Format("Pulled {0} messages from customer", messages.Count));
             this.ShowMessage();
             return;
         }

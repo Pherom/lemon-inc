@@ -35,5 +35,10 @@ public class UIManager : MonoBehaviour
         orderSummaryCanvas.gameObject.SetActive(false);
     }
 
+    public void HideOrderSummary()
+    {
+        orderSummaryCanvas.gameObject.SetActive(false);
+    }
+
     
 }

@@ -12,7 +12,6 @@ public class OrderHolder : MonoBehaviour
     public void SetOrderStatus(CustomerOrder updatedOrder) {
         //if (updatedOrder == null) return;
         this.orderStatus = updatedOrder;
-        Debug.Log(this.ToString());
         
     }
     public override string ToString()

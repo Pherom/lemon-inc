@@ -24,7 +24,6 @@ public class GlassCollision : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Colliding with the ground -- glass object to be destroyed..");
             int soundClipIndex = (int)Random.Range(0, shutterdGlassSFX.Length);
             source.PlayOneShot(shutterdGlassSFX[soundClipIndex]);
             Destroy(gameObject,3);
