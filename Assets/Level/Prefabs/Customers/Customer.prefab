@@ -47,13 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb1d2fce641c5b489f374b01f3982f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thinkingTime: 0
   welcomeMessages:
   - Howdy
   - Hi Pal
   - Ma nishma
   - Hi :)
   chatBubble: {fileID: 8891348993494493018}
+  dispatchSocInt: {fileID: 1909155418911638787, guid: 3e8d040b0c84ef84184054be30af9dc9,
+    type: 3}
   IsHoverEntered: 0
 --- !u!114 &3484522672049384304
 MonoBehaviour:
@@ -74,6 +75,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3484522672049384304}
         m_TargetAssemblyTypeName: ShowCustomerMessages, Assembly-CSharp
         m_MethodName: SayThanks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2735014587159639466}
+        m_TargetAssemblyTypeName: Customer, Assembly-CSharp
+        m_MethodName: AttemptToTakeOrder
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

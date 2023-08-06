@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Customer : MonoBehaviour
 {
     CustomerOrder order;
     [SerializeField] string[] welcomeMessages = {"Howdy", "Hi Pal", "Ma nishma", "Hi :)"};
-    [SerializeField] GameObject chatBubble; 
+    [SerializeField] GameObject chatBubble;
    
     // Start is called before the first frame update
 
@@ -31,8 +33,16 @@ public class Customer : MonoBehaviour
     }
     public void AttemptToTakeOrder()
     {
+        XRSocketInteractor dispatchSocInt = GameObject.FindGameObjectWithTag("Dispatch").GetComponent<XRSocketInteractor>();
 
+        if (dispatchSocInt.hasSelection)
+        {
+            CustomerManager customerManager = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
+            Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
+            customerManager.SendCustomerAway(transform.parent.gameObject);
+        }
     }
+
     public List<string> GetMessages()
     {
         List<string> msgs = new List<string>();
@@ -59,6 +69,5 @@ public class Customer : MonoBehaviour
 
         return msgs; 
     }
-
 
 }

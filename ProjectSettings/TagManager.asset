@@ -12,6 +12,8 @@ TagManager:
   - Pink Lemonade Syrup
   - Regular Lemonade
   - Mint
+  - Dispatch
+  - CustomerManager
   layers:
   - Default
   - TransparentFX
