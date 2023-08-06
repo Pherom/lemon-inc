@@ -9,7 +9,7 @@ public enum DrinkType
     LEMONADE,
     PINK_LEMONADE,
 }
-public class CustomerOrder : MonoBehaviour
+public class CustomerOrder : UnityEngine.Object
 {
     [SerializeField] int sugarCount;
     bool additionalIngredient;

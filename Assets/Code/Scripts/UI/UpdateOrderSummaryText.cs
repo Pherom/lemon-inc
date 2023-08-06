@@ -17,7 +17,7 @@ public class UpdateOrderSummaryText : MonoBehaviour
         {
             CustomerOrder drink = orderWrapper.GetOrderStatus();
  
-            sugarCountLabel.text = drink.GetDrinkType().ToString();
+            sugarCountLabel.text = drink.GetSugarCount().ToString();
 
             if (drink.IsAddedIngredientIncluded() && addedIngredientLabel != null)
             {

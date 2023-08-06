@@ -12101,6 +12101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5586964522197168435}
   - component: {fileID: 5586964522197168444}
+  - component: {fileID: 6939442662578652912}
   m_Layer: 0
   m_Name: Glass Opening
   m_TagString: Untagged
@@ -12136,3 +12137,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.17604487, y: 0.016782857, z: 0.17177469}
   m_Center: {x: -0.0006626183, y: 0.008314195, z: 0.0112478975}
+--- !u!114 &6939442662578652912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586964522197168434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09982c68a97b96a4b88fb96550df1097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sugaredLemonadePrefab: {fileID: 0}

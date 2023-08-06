@@ -11,12 +11,12 @@ public class TurnMinty : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Mint"))
         {
-            Destroy(transform.parent.gameObject);
             Destroy(other.gameObject);
-            CustomerOrder orderStatus = GetComponent<OrderHolder>()?.GetOrderStatus();
-            orderStatus?.AddAdditionalIngredient();
+            CustomerOrder orderStatus = transform.parent.gameObject.GetComponent<OrderHolder>().GetOrderStatus();
+            orderStatus.AddAdditionalIngredient();
+            Destroy(transform.parent.gameObject);
             GameObject newDrink = Instantiate(mintyLemonadePrefab, transform.parent.transform.position, transform.parent.transform.rotation);
-            newDrink.GetComponent<OrderHolder>()?.SetOrderStatus(orderStatus);
+            newDrink.GetComponent<OrderHolder>().SetOrderStatus(orderStatus);
         }
     }
 }

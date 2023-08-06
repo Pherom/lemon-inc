@@ -12102,6 +12102,7 @@ GameObject:
   - component: {fileID: 222600286928145402}
   - component: {fileID: 5245362902841117162}
   - component: {fileID: 7554365116521133751}
+  - component: {fileID: 5641686859481468136}
   m_Layer: 3
   m_Name: Glass Opening
   m_TagString: Untagged
@@ -12151,3 +12152,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mintyLemonadePrefab: {fileID: 2531655125023401302, guid: cadea6f2d648ef64a93f76ee225054b0,
     type: 3}
+--- !u!114 &5641686859481468136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621190029113047223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09982c68a97b96a4b88fb96550df1097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sugaredLemonadePrefab: {fileID: 0}

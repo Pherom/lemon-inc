@@ -37,7 +37,8 @@ public class SetJuicerState : MonoBehaviour
 
                 GameObject drinkingGlass = gameObject.GetComponent<XRSocketInteractor>().GetOldestInteractableSelected().transform.gameObject;
                 GameObject lemonSlice = opened.GetComponent<XRSocketInteractor>().GetOldestInteractableSelected().transform.gameObject;
-                Instantiate(lemonJuicePrefab, drinkingGlass.transform.position, drinkingGlass.transform.rotation);
+                GameObject lemonJuice = Instantiate(lemonJuicePrefab, drinkingGlass.transform.position, drinkingGlass.transform.rotation);
+                lemonJuice.GetComponent<OrderHolder>().GetOrderStatus().SetDrinkType(DrinkType.LEMONADE);
                 Destroy(drinkingGlass);
                 Destroy(lemonSlice);
             }

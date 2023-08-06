@@ -5,7 +5,6 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     CustomerOrder order;
-    [SerializeField] float thinkingTime = 0f;
     [SerializeField] string[] welcomeMessages = {"Howdy", "Hi Pal", "Ma nishma", "Hi :)"};
     [SerializeField] GameObject chatBubble; 
    
@@ -15,7 +14,6 @@ public class Customer : MonoBehaviour
     void Start()
     {
         order = new CustomerOrder();
-        Debug.Log(order.ToString());
         IsHoverEntered = false;
     }
    

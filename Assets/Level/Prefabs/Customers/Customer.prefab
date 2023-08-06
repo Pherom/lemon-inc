@@ -147,10 +147,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5864328934404095565}
     m_Modifications:
+    - target: {fileID: 633645021339052940, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 633645021563640149, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633645021563640149, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -30.999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 633645021563640149, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633645021563640149, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 633645021563640149, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 633645021990443572, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
         type: 3}
       propertyPath: m_Name
       value: ChatBubble_custom
+      objectReference: {fileID: 0}
+    - target: {fileID: 633645021990443572, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 633645021990443574, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
         type: 3}
@@ -226,6 +261,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 800563850604548760, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401935233381639087, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401935233381639087, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401935233381639087, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401935233381639087, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401935233381639087, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.03
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6938045132761864417, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f, type: 3}

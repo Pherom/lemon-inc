@@ -41,7 +41,7 @@ public class ShowCustomerMessages : MonoBehaviour
         }
 
         if (!customer.IsHoverEntered) { return; }
-        
+
         int newIndex = ++this.index % this.messages.Count;
 
         if (newIndex < this.index)
