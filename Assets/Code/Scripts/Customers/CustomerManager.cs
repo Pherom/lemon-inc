@@ -28,6 +28,11 @@ public class CustomerManager : MonoBehaviour
     [SerializeField]
     private GameObject debugSendCustomerAwayGO;
 
+    [SerializeField]
+    private List<string> customerAvailableMaleNames = new List<string>();
+    [SerializeField]
+    private List<string> customerAvailableFemaleNames = new List<string>();
+
     public void Start()
     {
         customersWaitingInLine = new GameObject[customerLinePositions.Length];
@@ -65,6 +70,24 @@ public class CustomerManager : MonoBehaviour
         int customerPrefabIndex = Random.Range(0, customerPrefabs.Length);
         int spawnPointIndex = Random.Range(0, spawnPositions.Length);
         GameObject spawned = Instantiate(customerPrefabs[customerPrefabIndex], spawnPositions[spawnPointIndex], spawnRotations[spawnPointIndex]);
+
+        Customer customerData = spawned.GetComponent<Customer>();
+        Customer.Gender gender = customerData.CustomerGender;
+        string name;
+        if (gender == Customer.Gender.Male)
+        {
+            int index = Random.Range(0, customerAvailableMaleNames.Count);
+            name = customerAvailableMaleNames[index];
+            customerAvailableMaleNames.RemoveAt(index);
+        }
+        else
+        {
+            int index = Random.Range(0, customerAvailableFemaleNames.Count);
+            name = customerAvailableFemaleNames[index];
+            customerAvailableFemaleNames.RemoveAt(index);
+        }
+        customerData.CustomerName = name;
+
         spawned.GetComponent<NavMeshAgent>().destination = customerLinePositions[customersInLineCount];
         if (customersAtTableCount < customerOrderContactPositions.Length)
         {
@@ -102,6 +125,16 @@ public class CustomerManager : MonoBehaviour
 
                 spawnCustomer();
                 debugSendCustomerAway = false;
+
+                var customerData = customer.GetComponent<Customer>();
+                if (customerData.CustomerGender == Customer.Gender.Male)
+                {
+                    customerAvailableMaleNames.Add(customerData.CustomerName);
+                }
+                else
+                {
+                    customerAvailableFemaleNames.Add(customerData.CustomerName);
+                }
 
                 break;
             }

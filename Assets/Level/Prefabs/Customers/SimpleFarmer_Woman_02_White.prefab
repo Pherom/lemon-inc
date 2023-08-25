@@ -143,13 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb1d2fce641c5b489f374b01f3982f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thinkingTime: 0
   welcomeMessages:
   - Howdy
   - Hi Pal
   - Ma nishma
   - Hi :)
   chatBubble: {fileID: 0}
+  gender: 1
+  customerName: 
   IsHoverEntered: 0
 --- !u!65 &-454806389464230174
 BoxCollider:

@@ -6,10 +6,26 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Customer : MonoBehaviour
 {
+    public enum Gender
+    {
+        Male,
+        Female
+    }
+
     CustomerOrder order;
     [SerializeField] string[] welcomeMessages = {"Howdy", "Hi Pal", "Ma nishma", "Hi :)"};
     [SerializeField] GameObject chatBubble;
-   
+    [SerializeField] Gender gender;
+    [SerializeField] string customerName;
+    public Gender CustomerGender
+    {
+        get { return gender; }
+    }
+    public string CustomerName
+    {
+        get { return customerName; }
+        set { customerName = value; }
+    }
     // Start is called before the first frame update
 
     public bool IsHoverEntered;
@@ -47,7 +63,8 @@ public class Customer : MonoBehaviour
     {
         List<string> msgs = new List<string>();
         int index = Random.Range(0, welcomeMessages.Length);
-        msgs.Add(welcomeMessages[index]);
+        string welcomeMessage = welcomeMessages[index] + "\nMy name is " + customerName;
+        msgs.Add(welcomeMessage);
         string drink_type = order.GetDrinkType().ToString().ToLower();
         int sugar_count = order.GetSugarCount();
         bool mint = order.IsAddedIngredientIncluded();
