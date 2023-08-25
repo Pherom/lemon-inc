@@ -12,36 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
   m_Name: lemon-inc
   m_EditorClassIdentifier: 
-  _clientAccessToken: O2YSE25V2LQRWAHAPCWOOTFS2DXSWPPR
+  _clientAccessToken: OU7DSSVKZ7EF23T72WUKHFJJ3DURDUKQ
   _appInfo:
     name: lemon_inc
-    id: 258585049826745
+    id: 817598743274724
     lang: en
-    isPrivate: 1
-    createdAt: 2023-03-28T08:40:03-0700
+    isPrivate: 0
+    createdAt: 2023-07-30T07:01:37-0700
     trainingStatus: 1
-    lastTrainDuration: 28
-    lastTrainedAt: 2023-05-16T08:06:59-0700
-    nextTrainAt: 2023-05-16T08:06:31-0700
+    lastTrainDuration: 56
+    lastTrainedAt: 2023-08-25T00:05:35-0700
+    nextTrainAt: 2023-08-25T00:04:39-0700
     intents:
-    - id: 6208473822580059
-      name: spawn_customer
+    - id: 1650638575402692
+      name: order_ready
       entities:
-      - name: spawnRequested:spawnRequested
-        id: 265233402557061
+      - name: wit$contact:contact
+        id: 255425287283237
     entities:
-    - name: spawnRequested
-      id: 573170828139879
-      lookups:
-      - free-text
-      - keywords
+    - name: wit$contact
+      id: 535a8111-9b01-4678-80ae-53a22ef0bf5b
+      lookups: []
       roles:
-      - name: spawnRequested
-        id: 265233402557061
-      keywords:
-      - keyword: Next customer
-        synonyms:
-        - next customer
+      - name: contact
+        id: 255425287283237
+      keywords: []
     traits: []
     voices:
     - name: Cael

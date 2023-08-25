@@ -27,13 +27,7 @@ namespace Oculus.Voice.Demo
 {
     public class InteractionHandler : MonoBehaviour
     {
-        [Header("Default States"), Multiline]
-        [SerializeField] private string freshStateText = "Try pressing the Activate button and saying \"Make the cube red\"";
-
-        [Header("UI")]
-
         [SerializeField] private bool showJson;
-
         [Header("Voice")]
         [SerializeField] private AppVoiceExperience appVoiceExperience;
 
@@ -43,9 +37,11 @@ namespace Oculus.Voice.Demo
         public bool IsActive => _active;
         private bool _active = false;
 
+
         // Add delegates
         private void OnEnable()
         {
+            Debug.Log("OnEnable interactionHandler");
             appVoiceExperience.VoiceEvents.OnRequestCreated.AddListener(OnRequestStarted);
             appVoiceExperience.VoiceEvents.OnPartialTranscription.AddListener(OnRequestTranscript);
             appVoiceExperience.VoiceEvents.OnFullTranscription.AddListener(OnRequestTranscript);
@@ -59,6 +55,7 @@ namespace Oculus.Voice.Demo
         // Remove delegates
         private void OnDisable()
         {
+            Debug.Log("OnDisable interactionHandler");
             appVoiceExperience.VoiceEvents.OnRequestCreated.RemoveListener(OnRequestStarted);
             appVoiceExperience.VoiceEvents.OnPartialTranscription.RemoveListener(OnRequestTranscript);
             appVoiceExperience.VoiceEvents.OnFullTranscription.RemoveListener(OnRequestTranscript);
@@ -70,19 +67,12 @@ namespace Oculus.Voice.Demo
             appVoiceExperience.VoiceEvents.OnError.RemoveListener(OnRequestError);
         }
 
-        /// Context menu to test voice command
-        [ContextMenu("Test voice command")]
-        public void TestVoiceCommand()
-        {
-            appVoiceExperience.Activate(textToSend);
-            _active = true;
-        }
-
         // Request began
         private void OnRequestStarted(WitRequest r)
         {
+            Debug.Log("wit request sent interactionHandler" + r.ToString());
             // Store json on completion
-            if (showJson) r.onRawResponse = (response) => Debug.Log("Interaction handler request started " + response);
+            if (showJson) r.onRawResponse = (response) =>  Debug.Log(response);
             // Begin
             _active = true;
         }
@@ -104,6 +94,7 @@ namespace Oculus.Voice.Demo
         // Listen stop
         private void OnListenForcedStop()
         {
+            
             OnRequestComplete();
         }
         // Request response
@@ -113,7 +104,7 @@ namespace Oculus.Voice.Demo
             {
                 if (!string.IsNullOrEmpty(response["text"]))
                 {
-                    Debug.Log("I heard: " + response["text"]);
+                    Debug.Log( "I heard: " + response["text"]);
                 }
             }
             OnRequestComplete();
@@ -121,16 +112,14 @@ namespace Oculus.Voice.Demo
         // Request error
         private void OnRequestError(string error, string message)
         {
-            if (!showJson)
-            {
-                Debug.Log($"<color=\"red\">Error: {error}\n\n{message}</color>");
-            }
+            Debug.LogError($"<color=\"red\">Error: {error}\n\n{message}</color>");
             OnRequestComplete();
         }
         // Deactivate
         private void OnRequestComplete()
         {
-            _active = false;
+            Debug.Log("wit request completed interactionHandler");
+            SetActivation(false);
         }
 
         // Toggle activation

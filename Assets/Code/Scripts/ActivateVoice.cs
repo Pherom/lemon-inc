@@ -27,12 +27,10 @@ public class ActivateVoice : MonoBehaviour
         }
     }
 
-    public void TriggerPressed(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            audioSource.Play();
-            wit.Activate();
-        }
+    public void TriggerPressed()
+    { 
+        wit.Activate();
+        audioSource.Play();
+        Debug.Log("Trigger pressed");
     }
 }

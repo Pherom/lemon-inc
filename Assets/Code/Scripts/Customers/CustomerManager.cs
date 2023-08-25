@@ -94,6 +94,7 @@ public class CustomerManager : MonoBehaviour
         if (customersAtTableCount < customerOrderContactPositions.Length)
         {
             customersWaitingAtTable[customersAtTableCount] = spawned;
+            Debug.Log(string.Format("{0} joined the table :)", customerData.CustomerName));
             spawned.GetComponent<CustomerNavMesh>().OrderContactPosition = customerOrderContactPositions[customersAtTableCount];
             spawned.GetComponent<CustomerNavMesh>().IsUpNext = true;
             customersAtTableCount++;
@@ -107,11 +108,17 @@ public class CustomerManager : MonoBehaviour
 
     public void AcceptOrderByCustomerName(string customerName)
     {
+        Debug.Log("Trying to send customer away - " + customerName);
+
         foreach (GameObject customer in customersWaitingAtTable)
         {
-            if (customer.name == customerName)
+            Customer customerObject = customer.GetComponent<Customer>(); 
+            if (customerObject.CustomerName == customerName)
             {
-                customer.GetComponent<Customer>().AttemptToTakeOrder();
+                //TODO Should uncomment this line - sending customer away only when order is present. 
+                //customerObject.AttemptToTakeOrder();
+                this.SendCustomerAway(customer);
+                Debug.Log("Sending customer away - " + customerName);
                 break;
             }
         }
