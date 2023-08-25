@@ -53,8 +53,8 @@ MonoBehaviour:
   - Ma nishma
   - Hi :)
   chatBubble: {fileID: 8891348993494493018}
-  dispatchSocInt: {fileID: 1909155418911638787, guid: 3e8d040b0c84ef84184054be30af9dc9,
-    type: 3}
+  gender: 0
+  customerName: 
   IsHoverEntered: 0
 --- !u!114 &3484522672049384304
 MonoBehaviour:

@@ -88,6 +88,8 @@ public class CustomerManager : MonoBehaviour
         }
         customerData.CustomerName = name;
 
+        spawned.GetComponentInChildren<ShowCustomerMessages>().SetMessages(customerData.GetMessages());
+
         spawned.GetComponent<NavMeshAgent>().destination = customerLinePositions[customersInLineCount];
         if (customersAtTableCount < customerOrderContactPositions.Length)
         {

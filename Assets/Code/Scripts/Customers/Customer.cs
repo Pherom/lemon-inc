@@ -29,9 +29,14 @@ public class Customer : MonoBehaviour
     // Start is called before the first frame update
 
     public bool IsHoverEntered;
-    void Start()
+
+    private void Awake()
     {
         order = new CustomerOrder();
+    }
+
+    void Start()
+    {
         IsHoverEntered = false;
     }
    
@@ -64,6 +69,7 @@ public class Customer : MonoBehaviour
         List<string> msgs = new List<string>();
         int index = Random.Range(0, welcomeMessages.Length);
         string welcomeMessage = welcomeMessages[index] + "\nMy name is " + customerName;
+        Debug.Log(welcomeMessage);
         msgs.Add(welcomeMessage);
         string drink_type = order.GetDrinkType().ToString().ToLower();
         int sugar_count = order.GetSugarCount();

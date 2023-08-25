@@ -18,18 +18,6 @@ public class ShowCustomerMessages : MonoBehaviour
     [SerializeField] Customer customer;
     private int index = 0;
 
-    private void Start()
-    {
-        if (customer == null)
-        {
-            customer = GetComponent<Customer>();
-        }
-        else
-        {
-            this.SetMessages(customer.GetMessages());
-        }
-    }
-
     public void NextMessage()
     {
         if (messages.Count == 0)
