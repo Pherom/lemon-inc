@@ -9,6 +9,9 @@ public class ActivateVoice : MonoBehaviour
     [SerializeField]
     private Wit wit;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,7 @@ public class ActivateVoice : MonoBehaviour
     {
         if (context.performed)
         {
+            audioSource.Play();
             wit.Activate();
         }
     }

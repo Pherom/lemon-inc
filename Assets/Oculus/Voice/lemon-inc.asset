@@ -20,19 +20,81 @@ MonoBehaviour:
     isPrivate: 1
     createdAt: 2023-03-28T08:40:03-0700
     trainingStatus: 1
-    lastTrainDuration: 0
-    lastTrainedAt: 1969-12-31T16:00:00-0800
-    nextTrainAt: 1969-12-31T16:00:00-0800
-    intents: []
-    entities: []
+    lastTrainDuration: 28
+    lastTrainedAt: 2023-05-16T08:06:59-0700
+    nextTrainAt: 2023-05-16T08:06:31-0700
+    intents:
+    - id: 6208473822580059
+      name: spawn_customer
+      entities:
+      - name: spawnRequested:spawnRequested
+        id: 265233402557061
+    entities:
+    - name: spawnRequested
+      id: 573170828139879
+      lookups:
+      - free-text
+      - keywords
+      roles:
+      - name: spawnRequested
+        id: 265233402557061
+      keywords:
+      - keyword: Next customer
+        synonyms:
+        - next customer
     traits: []
     voices:
+    - name: Cael
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: Cam
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: Carl
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
     - name: Charlie
       locale: en_US
       gender: male
       styles:
       - default
       - soft
+      - fast
+      - projected
+    - name: Cody
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: Connor
+      locale: en_US
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
       - fast
       - projected
     - name: Cooper
@@ -49,7 +111,34 @@ MonoBehaviour:
       gender: male
       styles:
       - default
+    - name: Railey
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
     - name: Rebecca
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: Remi
+      locale: en_US
+      gender: female
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: Rubie
       locale: en_US
       gender: female
       styles:
@@ -61,6 +150,24 @@ MonoBehaviour:
     - name: Vampire
       locale: en_US
       gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: Colin
+      locale: en_CA
+      gender: male
+      styles:
+      - default
+      - soft
+      - formal
+      - fast
+      - projected
+    - name: Rosie
+      locale: en_CA
+      gender: female
       styles:
       - default
       - soft

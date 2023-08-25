@@ -105,6 +105,18 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+    public void AcceptOrderByCustomerName(string customerName)
+    {
+        foreach (GameObject customer in customersWaitingAtTable)
+        {
+            if (customer.name == customerName)
+            {
+                customer.GetComponent<Customer>().AttemptToTakeOrder();
+                break;
+            }
+        }
+    }
+
     public void SendCustomerAway(GameObject customer)
     {
         for (int i = 0; i < customersWaitingAtTable.Length; i++)
