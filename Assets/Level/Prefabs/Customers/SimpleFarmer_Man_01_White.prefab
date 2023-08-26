@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4218267427276587806}
   - component: {fileID: 1572702644469963756}
   - component: {fileID: -1925216922246999279}
-  - component: {fileID: 5303168808984042750}
   - component: {fileID: 5216210417645546225}
   - component: {fileID: -1055006615812064791}
   m_Layer: 0
@@ -131,26 +130,6 @@ MonoBehaviour:
     type: 3}
   minTimeInSeconds: 45
   maxTimeInSeconds: 60
---- !u!114 &5303168808984042750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb1d2fce641c5b489f374b01f3982f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thinkingTime: 0
-  welcomeMessages:
-  - Howdy
-  - Hi Pal
-  - Ma nishma
-  - Hi :)
-  chatBubble: {fileID: 0}
-  IsHoverEntered: 0
 --- !u!65 &5216210417645546225
 BoxCollider:
   m_ObjectHideFlags: 0

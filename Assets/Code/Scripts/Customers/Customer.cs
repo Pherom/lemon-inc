@@ -60,6 +60,7 @@ public class Customer : MonoBehaviour
         {
             CustomerManager customerManager = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
             Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
+            Debug.Log(transform.parent.gameObject.name);
             customerManager.SendCustomerAway(transform.parent.gameObject);
         }
     }

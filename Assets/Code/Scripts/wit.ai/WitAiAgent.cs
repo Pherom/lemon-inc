@@ -23,7 +23,7 @@ public class WitAiAgent : MonoBehaviour
         WitEntityData entity = witResponse.GetFirstWitEntity("wit$contact:contact");
         if(entity == null)
         {
-            Debug.Log("Contact entity was not recognized in voice command " + entity.name);
+            Debug.Log("Contact entity was not recognized in voice command");
             return;
         }
         else

@@ -71,7 +71,7 @@ public class CustomerManager : MonoBehaviour
         int spawnPointIndex = Random.Range(0, spawnPositions.Length);
         GameObject spawned = Instantiate(customerPrefabs[customerPrefabIndex], spawnPositions[spawnPointIndex], spawnRotations[spawnPointIndex]);
 
-        Customer customerData = spawned.GetComponent<Customer>();
+        Customer customerData = spawned.GetComponentInChildren<Customer>();
         Customer.Gender gender = customerData.CustomerGender;
         string name;
         if (gender == Customer.Gender.Male)
@@ -112,12 +112,11 @@ public class CustomerManager : MonoBehaviour
 
         foreach (GameObject customer in customersWaitingAtTable)
         {
-            Customer customerObject = customer.GetComponent<Customer>(); 
+            Customer customerObject = customer.GetComponentInChildren<Customer>(); 
             if (customerObject.CustomerName == customerName)
             {
                 //TODO Should uncomment this line - sending customer away only when order is present. 
-                //customerObject.AttemptToTakeOrder();
-                this.SendCustomerAway(customer);
+                customerObject.AttemptToTakeOrder();
                 Debug.Log("Sending customer away - " + customerName);
                 break;
             }
@@ -147,7 +146,7 @@ public class CustomerManager : MonoBehaviour
                 spawnCustomer();
                 debugSendCustomerAway = false;
 
-                var customerData = customer.GetComponent<Customer>();
+                var customerData = customer.GetComponentInChildren<Customer>();
                 if (customerData.CustomerGender == Customer.Gender.Male)
                 {
                     customerAvailableMaleNames.Add(customerData.CustomerName);

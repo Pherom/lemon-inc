@@ -364,7 +364,6 @@ GameObject:
   - component: {fileID: -3788464517057650096}
   - component: {fileID: 5698884849669846283}
   - component: {fileID: -3974892704917162225}
-  - component: {fileID: -8692261092294329910}
   - component: {fileID: -4993227154516548219}
   - component: {fileID: 6457222237397102569}
   m_Layer: 0
@@ -482,27 +481,6 @@ MonoBehaviour:
     type: 3}
   minTimeInSeconds: 45
   maxTimeInSeconds: 60
---- !u!114 &-8692261092294329910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb1d2fce641c5b489f374b01f3982f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  welcomeMessages:
-  - Howdy
-  - Hi Pal
-  - Ma nishma
-  - Hi :)
-  chatBubble: {fileID: 0}
-  gender: 1
-  customerName: 
-  IsHoverEntered: 0
 --- !u!65 &-4993227154516548219
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1440,6 +1418,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400046}
     m_Modifications:
+    - target: {fileID: 2735014587159639466, guid: 7138ccb222bc3374683ead617f84bef2,
+        type: 3}
+      propertyPath: gender
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5864328934404095565, guid: 7138ccb222bc3374683ead617f84bef2,
         type: 3}
       propertyPath: m_RootOrder

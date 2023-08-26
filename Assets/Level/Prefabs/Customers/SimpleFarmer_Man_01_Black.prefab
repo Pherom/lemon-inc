@@ -363,7 +363,6 @@ GameObject:
   - component: {fileID: 9500000}
   - component: {fileID: 2658949116884280024}
   - component: {fileID: 4881813742945875350}
-  - component: {fileID: 8631704073890163209}
   - component: {fileID: -2225587686126427544}
   - component: {fileID: 4605860823583542680}
   - component: {fileID: 4203793986853295876}
@@ -466,26 +465,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8631704073890163209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb1d2fce641c5b489f374b01f3982f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thinkingTime: 0
-  welcomeMessages:
-  - Howdy
-  - Hi Pal
-  - Ma nishma
-  - Hi :)
-  chatBubble: {fileID: 0}
-  IsHoverEntered: 0
 --- !u!114 &-2225587686126427544
 MonoBehaviour:
   m_ObjectHideFlags: 0
