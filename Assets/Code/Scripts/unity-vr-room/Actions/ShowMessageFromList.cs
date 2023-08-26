@@ -36,6 +36,7 @@ public class ShowMessageFromList : MonoBehaviour
         }
         else if (newIndex == messages.Count - 1)
         {
+            ShowMessage();
             UpdateButtonText.Invoke();
         }
         else
