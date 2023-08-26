@@ -17,6 +17,18 @@ public class Customer : MonoBehaviour
     [SerializeField] GameObject chatBubble;
     [SerializeField] Gender gender;
     [SerializeField] string customerName;
+    [SerializeField] float waitAfterAcceptingOrder = 1f;
+
+    private CustomerMessages messages; 
+    private CustomerManager customerManger; 
+    
+
+    void Start()
+    {
+        messages = this.GetComponent<CustomerMessages>();
+        customerManger = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
+        IsHoverEntered = false;
+    }
     public Gender CustomerGender
     {
         get { return gender; }
@@ -35,11 +47,6 @@ public class Customer : MonoBehaviour
         order = new CustomerOrder();
     }
 
-    void Start()
-    {
-        IsHoverEntered = false;
-    }
-   
 
     public void HoverEntered()
     {
@@ -58,11 +65,18 @@ public class Customer : MonoBehaviour
 
         if (dispatchSocInt.hasSelection)
         {
-            CustomerManager customerManager = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
+            messages.SayThanks();
             Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
             Debug.Log(transform.parent.gameObject.name);
-            customerManager.SendCustomerAway(transform.parent.gameObject);
+            var customer =  transform.parent.gameObject;
+            StartCoroutine(sendCustomerAway(customer));
         }
+    }
+
+    private IEnumerator sendCustomerAway(GameObject customer)
+    {
+        yield return new WaitForSeconds(waitAfterAcceptingOrder);
+        this.customerManger.SendCustomerAway(customer);
     }
 
     public List<string> GetMessages()
@@ -74,7 +88,7 @@ public class Customer : MonoBehaviour
         string drink_type = order.GetDrinkType().ToString().ToLower();
         int sugar_count = order.GetSugarCount();
         bool mint = order.IsAddedIngredientIncluded();
-        msgs.Add(string.Format("I would like {0} please", drink_type));
+        msgs.Add(string.Format("I would like {0} please", drink_type.Replace('_', ' ')));
         if (sugar_count == 0)
         {
             msgs.Add("With no sugar");
@@ -91,6 +105,13 @@ public class Customer : MonoBehaviour
 
 
         return msgs; 
+    }
+
+    [ContextMenu("Show chat bubble")]
+    public void ShowChatBubble()
+    {
+        GameObject chatBubble = gameObject.transform.GetChild(0).gameObject;
+        chatBubble.SetActive(true);
     }
 
 }
