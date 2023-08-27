@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
 
 public class SetJuicerState : MonoBehaviour
 {
@@ -10,7 +11,13 @@ public class SetJuicerState : MonoBehaviour
     private GameObject closed;
     private GameObject opened;
     public AudioClip mistakeSound;
-    public AudioSource source; 
+    public AudioSource source;
+
+    [SerializeField]
+    private bool isTutorial = false;
+    private bool tutorialFirstTime = true;
+    [SerializeField]
+    private UnityEvent tutorialProceedToNextStep;
 
     void Start()
     {
@@ -46,5 +53,11 @@ public class SetJuicerState : MonoBehaviour
 
         closed.SetActive(!closed.activeSelf);
         opened.SetActive(!opened.activeSelf);
+
+        if (isTutorial && tutorialFirstTime)
+        {
+            tutorialProceedToNextStep.Invoke();
+            tutorialFirstTime = false;
+        }
     }
 }
