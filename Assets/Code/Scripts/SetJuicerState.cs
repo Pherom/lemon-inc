@@ -16,8 +16,11 @@ public class SetJuicerState : MonoBehaviour
     [SerializeField]
     private bool isTutorial = false;
     private bool tutorialFirstTime = true;
+    private bool tutorialSecondTime = false;
     [SerializeField]
-    private UnityEvent tutorialProceedToNextStep;
+    private UnityEvent tutorialProceedToNextStep1;
+    [SerializeField]
+    private UnityEvent tutorialProceedToNextStep2;
 
     void Start()
     {
@@ -34,7 +37,7 @@ public class SetJuicerState : MonoBehaviour
             //Check if lemon in socket and drinking glass in socket
             if (opened.GetComponent<XRSocketInteractor>().hasSelection)
             {
-                if (!gameObject.GetComponent<XRSocketInteractor>().hasSelection || gameObject.GetComponent<XRSocketInteractor>().GetOldestInteractableSelected().transform.gameObject.CompareTag("Full Glass"))
+                if (!gameObject.GetComponent<XRSocketInteractor>().hasSelection || gameObject.GetComponent<XRSocketInteractor>().GetOldestInteractableSelected().transform.gameObject.CompareTag("Basic Lemonade"))
                 {
                     var controller = args.interactorObject.transform.GetComponent<ActionBasedController>();
                     HapticController.SendHaptics(controller, 0.6f, 1f);
@@ -54,10 +57,19 @@ public class SetJuicerState : MonoBehaviour
         closed.SetActive(!closed.activeSelf);
         opened.SetActive(!opened.activeSelf);
 
-        if (isTutorial && tutorialFirstTime)
+        if (isTutorial)
         {
-            tutorialProceedToNextStep.Invoke();
-            tutorialFirstTime = false;
+            if (tutorialFirstTime)
+            {
+                tutorialProceedToNextStep1.Invoke();
+                tutorialFirstTime = false;
+                tutorialSecondTime = true;
+            }
+            else if (tutorialSecondTime)
+            {
+                tutorialProceedToNextStep2.Invoke();
+                tutorialSecondTime = false;
+            }
         }
     }
 }

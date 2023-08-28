@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 823434405836837415}
   m_Layer: 6
   m_Name: DrinkingGlass (Lemon + Mint)
-  m_TagString: Full Glass
+  m_TagString: Minty Lemonade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

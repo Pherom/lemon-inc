@@ -6375,7 +6375,7 @@ GameObject:
   - component: {fileID: 3760059109009094160}
   m_Layer: 0
   m_Name: DrinkingGlass (Lemon + Pink Lemonade Syrup + Mint + Sugar)
-  m_TagString: Full Glass
+  m_TagString: Sugared Minty Pink Lemonade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
