@@ -21,17 +21,11 @@
 using Meta.WitAi;
 using Meta.WitAi.Json;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Oculus.Voice.Demo
 {
     public class InteractionHandler : MonoBehaviour
     {
-        [Header("Default States"), Multiline]
-        [SerializeField] private string freshStateText = "Try pressing the Activate button and saying \"Make the cube red\"";
-
-        [Header("UI")]
-
         [SerializeField] private bool showJson;
 
         [Header("Voice")]

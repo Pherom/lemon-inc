@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6243924960369859365}
-  m_LocalRotation: {x: -0, y: 0.99861413, z: -0, w: 0.05262997}
+  m_LocalRotation: {x: 0, y: 0.99861395, z: 0, w: 0.0526323}
   m_LocalPosition: {x: -1, y: 2.2705283, z: 6.270919}
   m_LocalScale: {x: 1.6666662, y: 1.3333334, z: 1.6666662}
   m_ConstrainProportionsScale: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 8891348993494493016}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 173.966, z: 0}
 --- !u!114 &2735014587159639466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,18 +72,6 @@ MonoBehaviour:
   OnComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3484522672049384304}
-        m_TargetAssemblyTypeName: ShowCustomerMessages, Assembly-CSharp
-        m_MethodName: SayThanks
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2735014587159639466}
         m_TargetAssemblyTypeName: Customer, Assembly-CSharp
         m_MethodName: AttemptToTakeOrder
@@ -198,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 633645021990443572, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 633645021990443574, guid: 2e9ea1a04e5bb954d8e7b773e61b2d8f,
         type: 3}
