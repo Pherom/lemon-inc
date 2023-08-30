@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
 
 public class Customer : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class Customer : MonoBehaviour
     [SerializeField] GameObject chatBubble;
     [SerializeField] Gender gender;
     [SerializeField] string customerName;
+    [SerializeField] bool isTutorial = false;
+    [SerializeField] int tutorialOrderSugarAmount = 1;
+    [SerializeField] bool tutorialOrderAddIngredient = true;
+    [SerializeField] DrinkType tutorialOrderDrinkType = DrinkType.PINK_LEMONADE;
+    [SerializeField] UnityEvent tutorialProceedToNextStep;
     public Gender CustomerGender
     {
         get { return gender; }
@@ -32,7 +38,14 @@ public class Customer : MonoBehaviour
 
     private void Awake()
     {
-        order = new CustomerOrder();
+        if (isTutorial)
+        {
+            order = new CustomerOrder(tutorialOrderSugarAmount, tutorialOrderAddIngredient, tutorialOrderDrinkType);
+        }
+        else
+        {
+            order = new CustomerOrder();
+        }
     }
 
     void Start()
@@ -58,10 +71,20 @@ public class Customer : MonoBehaviour
 
         if (dispatchSocInt.hasSelection)
         {
-            CustomerManager customerManager = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
-            Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
-            Debug.Log(transform.parent.gameObject.name);
-            customerManager.SendCustomerAway(transform.parent.gameObject);
+            if (isTutorial)
+            {
+                Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
+                Debug.Log(transform.parent.gameObject.name);
+                transform.parent.gameObject.GetComponent<CustomerNavMesh>().IsDone = true;
+                tutorialProceedToNextStep.Invoke();
+            }
+            else
+            {
+                CustomerManager customerManager = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
+                Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
+                Debug.Log(transform.parent.gameObject.name);
+                customerManager.SendCustomerAway(transform.parent.gameObject);
+            }
         }
     }
 

@@ -17,6 +17,16 @@ public class ShowCustomerMessages : MonoBehaviour
     [TextArea] public List<string> messages = new List<string>();
     [SerializeField] Customer customer;
     private int index = 0;
+    [SerializeField]
+    private bool isTutorial = false;
+
+    private void Start()
+    {
+        if (isTutorial)
+        {
+            SetMessages(transform.gameObject.GetComponent<Customer>().GetMessages());
+        }
+    }
 
     public void NextMessage()
     {

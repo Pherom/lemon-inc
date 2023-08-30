@@ -7,7 +7,11 @@ using UnityEngine;
 public class WitAiAgent : MonoBehaviour
 {
     [SerializeField]
-    CustomerManager customerManager; 
+    CustomerManager customerManager;
+    [SerializeField]
+    TutorialCustomerManager tutorialCustomerManager;
+    [SerializeField]
+    bool isTutorial = false;
     string INTENT = "order_ready";
 
   
@@ -30,7 +34,14 @@ public class WitAiAgent : MonoBehaviour
         {
             string customerName = entity.body;
             Debug.Log("Customer name recognized " + customerName);
-            customerManager.AcceptOrderByCustomerName(customerName);
+            if (isTutorial)
+            {
+                tutorialCustomerManager.AcceptOrderByCustomerName(customerName);
+            }
+            else
+            {
+                customerManager.AcceptOrderByCustomerName(customerName);
+            }
         }
 
     }
