@@ -27,12 +27,12 @@ public class Customer : MonoBehaviour
 	[SerializeField] float waitAfterAcceptingOrder = 1f;
 
     private CustomerMessages messages; 
-    private CustomerManager customerManger; 
+    private CustomerManager customerManager; 
 
     void Start()
     {
         messages = this.GetComponent<CustomerMessages>();
-        customerManger = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
+        customerManager = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
         IsHoverEntered = false;
     }
     public Gender CustomerGender
@@ -92,7 +92,7 @@ public class Customer : MonoBehaviour
             	Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
             	Debug.Log(transform.parent.gameObject.name);
             	var customer =  transform.parent.gameObject;
-            	StartCoroutine(sendCustomerAway(customer));
+            	customerManager.SendCustomerAway(customer);
             }
         }
     }
