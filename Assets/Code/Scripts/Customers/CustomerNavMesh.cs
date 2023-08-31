@@ -21,6 +21,8 @@ public class CustomerNavMesh : MonoBehaviour
     [SerializeField]
     private UnityEvent reachedOrderContactPositionEvent;
     [SerializeField]
+    private UnityEvent onExit;
+    [SerializeField]
     private bool isTutorial = false;
     [SerializeField]
     private Vector3 tutorialOrderContactPosition;
@@ -99,6 +101,7 @@ public class CustomerNavMesh : MonoBehaviour
                 }
                 else
                 {
+                    onExit.Invoke();
                     Destroy(gameObject);
                 }
             }
