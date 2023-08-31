@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class ShowCustomerMessages : MonoBehaviour
+public class CustomerMessages : MonoBehaviour
 {
     [Tooltip("The text mesh the message is output to")]
     public TextMeshProUGUI messageOutput = null;
@@ -17,29 +17,39 @@ public class ShowCustomerMessages : MonoBehaviour
     [TextArea] public List<string> messages = new List<string>();
     [SerializeField] Customer customer;
     private int index = 0;
+    [SerializeField]
+    private bool isTutorial = false;
 
+    private void Start()
+    {
+        if (isTutorial)
+        {
+            SetMessages(transform.gameObject.GetComponent<Customer>().GetMessages());
+        }
+    }
+
+
+    [ContextMenu("Show Next Message")]
     public void NextMessage()
     {
+        if (!customer.IsHoverEntered) return;
+
         if (messages.Count == 0)
         {
             this.SetMessages(customer.GetMessages());
-            this.ShowMessage();
-            return;
-        }
-
-        if (!customer.IsHoverEntered) { return; }
-
-        int newIndex = ++this.index % this.messages.Count;
-
-        if (newIndex < this.index)
-        {
-            this.OnComplete.Invoke();
-            newIndex = 0; 
         }
         else
         {
-            this.ShowMessage();
+            int newIndex = ++this.index % this.messages.Count;
+
+            if (newIndex < this.index)
+            {
+                this.OnComplete.Invoke();
+                this.index = 0;
+            }
         }
+        this.ShowMessage();
+      
     }
 
     public void PreviousMessage()
@@ -75,5 +85,7 @@ public class ShowCustomerMessages : MonoBehaviour
         this.messages.Add(thanksMessage);
         this.messageOutput.text = thanksMessage;
     }
+
+
 }
 

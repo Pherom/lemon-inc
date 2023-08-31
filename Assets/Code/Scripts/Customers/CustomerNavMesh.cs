@@ -20,6 +20,12 @@ public class CustomerNavMesh : MonoBehaviour
     private GameObject xrRig;
     [SerializeField]
     private UnityEvent reachedOrderContactPositionEvent;
+    [SerializeField]
+    private UnityEvent onExit;
+    [SerializeField]
+    private bool isTutorial = false;
+    [SerializeField]
+    private Vector3 tutorialOrderContactPosition;
 
     public Vector3 OrderContactPosition
     {
@@ -42,6 +48,12 @@ public class CustomerNavMesh : MonoBehaviour
     private void Start()
     {
         xrRig = GameObject.Find("XR Rig");
+        if (isTutorial)
+        {
+            reachedOrderApproachPosition = true;
+            orderContactPosition = tutorialOrderContactPosition;
+            isUpNext = true;
+        }
     }
 
     private void Awake()
@@ -89,6 +101,7 @@ public class CustomerNavMesh : MonoBehaviour
                 }
                 else
                 {
+                    onExit.Invoke();
                     Destroy(gameObject);
                 }
             }

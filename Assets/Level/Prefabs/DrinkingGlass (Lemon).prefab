@@ -6451,7 +6451,7 @@ GameObject:
   - component: {fileID: -268949718206247221}
   m_Layer: 6
   m_Name: DrinkingGlass (Lemon)
-  m_TagString: Full Glass
+  m_TagString: Basic Lemonade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

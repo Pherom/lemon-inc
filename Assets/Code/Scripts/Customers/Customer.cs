@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
 
 public class Customer : MonoBehaviour
 {
@@ -17,6 +18,23 @@ public class Customer : MonoBehaviour
     [SerializeField] GameObject chatBubble;
     [SerializeField] Gender gender;
     [SerializeField] string customerName;
+    [SerializeField] bool isTutorial = false;
+    [SerializeField] int tutorialOrderSugarAmount = 1;
+    [SerializeField] bool tutorialOrderAddIngredient = true;
+    [SerializeField] DrinkType tutorialOrderDrinkType = DrinkType.PINK_LEMONADE;
+    [SerializeField] UnityEvent tutorialProceedToNextStep;
+    
+	[SerializeField] float waitAfterAcceptingOrder = 1f;
+
+    private CustomerMessages messages; 
+    private CustomerManager customerManager; 
+
+    void Start()
+    {
+        messages = this.GetComponent<CustomerMessages>();
+        customerManager = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
+        IsHoverEntered = false;
+    }
     public Gender CustomerGender
     {
         get { return gender; }
@@ -32,14 +50,16 @@ public class Customer : MonoBehaviour
 
     private void Awake()
     {
-        order = new CustomerOrder();
+        if (isTutorial)
+        {
+            order = new CustomerOrder(tutorialOrderSugarAmount, tutorialOrderAddIngredient, tutorialOrderDrinkType);
+        }
+        else
+        {
+            order = new CustomerOrder();
+        }
     }
 
-    void Start()
-    {
-        IsHoverEntered = false;
-    }
-   
 
     public void HoverEntered()
     {
@@ -58,9 +78,22 @@ public class Customer : MonoBehaviour
 
         if (dispatchSocInt.hasSelection)
         {
-            CustomerManager customerManager = GameObject.FindGameObjectWithTag("CustomerManager").GetComponent<CustomerManager>();
-            Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
-            customerManager.SendCustomerAway(transform.parent.gameObject);
+            if (isTutorial)
+            {
+				messages.SayThanks();
+                Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
+                Debug.Log(transform.parent.gameObject.name);
+                transform.parent.gameObject.GetComponent<CustomerNavMesh>().IsDone = true;
+                tutorialProceedToNextStep.Invoke();
+            }
+            else
+            {
+				messages.SayThanks();
+            	Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
+            	Debug.Log(transform.parent.gameObject.name);
+            	var customer =  transform.parent.gameObject;
+            	customerManager.SendCustomerAway(customer);
+            }
         }
     }
 
@@ -73,7 +106,7 @@ public class Customer : MonoBehaviour
         string drink_type = order.GetDrinkType().ToString().ToLower();
         int sugar_count = order.GetSugarCount();
         bool mint = order.IsAddedIngredientIncluded();
-        msgs.Add(string.Format("I would like {0} please", drink_type));
+        msgs.Add(string.Format("I would like {0} please", drink_type.Replace('_', ' ')));
         if (sugar_count == 0)
         {
             msgs.Add("With no sugar");
@@ -90,6 +123,13 @@ public class Customer : MonoBehaviour
 
 
         return msgs; 
+    }
+
+    [ContextMenu("Show chat bubble")]
+    public void ShowChatBubble()
+    {
+        GameObject chatBubble = gameObject.transform.GetChild(0).gameObject;
+        chatBubble.SetActive(true);
     }
 
 }

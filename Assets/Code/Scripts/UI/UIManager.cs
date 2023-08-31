@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
     public void DisplayOrderSummary(SelectEnterEventArgs args)
     {
         resetCanvas.gameObject.SetActive(false);
-        welcomeCanvas.gameObject.SetActive(false);
+        if (welcomeCanvas != null)
+            welcomeCanvas.gameObject.SetActive(false);
         //XRBaseInteractable dish = args.interactableObject as XRBaseInteractable;
         //OrderHolder order = dish.transform.gameObject.GetComponent<OrderHolder>();
         StartCoroutine("ShowOrderSummary");
@@ -24,7 +25,8 @@ public class UIManager : MonoBehaviour
     public void ShowResetMenu()
     {
         resetCanvas.gameObject.SetActive(true);
-        welcomeCanvas.gameObject.SetActive(false);
+        if (welcomeCanvas != null)
+            welcomeCanvas.gameObject.SetActive(false);
         orderSummaryCanvas.gameObject.SetActive(false);
     }
 

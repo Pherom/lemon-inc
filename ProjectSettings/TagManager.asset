@@ -14,6 +14,15 @@ TagManager:
   - Mint
   - Dispatch
   - CustomerManager
+  - Lemon
+  - Basic Lemonade
+  - Sugared Lemonade
+  - Pink Lemonade
+  - Sugared Pink Lemonade
+  - Minty Pink Lemonade
+  - Sugared Minty Pink Lemonade
+  - Minty Lemonade
+  - Sugared Minty Lemonade
   layers:
   - Default
   - TransparentFX
