@@ -86,6 +86,12 @@ public class CustomerMessages : MonoBehaviour
         this.messageOutput.text = thanksMessage;
     }
 
+    public void ResetMessages()
+    {
+        this.index = 0;
+        ShowMessage();
+    }
+
 
 }
 

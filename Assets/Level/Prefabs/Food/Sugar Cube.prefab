@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4054339020764962044}
   - component: {fileID: 9018496614417298986}
   - component: {fileID: 3388713362267666029}
+  - component: {fileID: 5440013694725617879}
   m_Layer: 0
   m_Name: Sugar Cube
   m_TagString: Sugar
@@ -272,3 +273,15 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &5440013694725617879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992002016689469736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbb3d207e07ad643a31e71741f4de70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

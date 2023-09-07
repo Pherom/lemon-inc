@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2330379435728760719}
   - component: {fileID: 2330379435728760718}
   - component: {fileID: 2330379435728760713}
+  - component: {fileID: 7384619642147046897}
   m_Layer: 0
   m_Name: Mint Leaf
   m_TagString: Mint
@@ -2068,3 +2069,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6318812, y: 0.18539788, z: 0.4124813}
   m_Center: {x: 0.0000004718701, y: -0.001588054, z: 0.00000023593505}
+--- !u!114 &7384619642147046897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330379435728760705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbb3d207e07ad643a31e71741f4de70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

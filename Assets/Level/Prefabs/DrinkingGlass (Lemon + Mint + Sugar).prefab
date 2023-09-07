@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 5895534959986786630}
   - component: {fileID: 4156257102597984986}
   - component: {fileID: -1204098631017684513}
+  - component: {fileID: -4042760079515792929}
   m_Layer: 6
   m_Name: DrinkingGlass (Lemon + Mint + Sugar)
   m_TagString: Sugared Minty Lemonade
@@ -5809,6 +5810,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1897dc31efb9b1f4bb7a165c3ec488fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4042760079515792929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591630285837760972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbb3d207e07ad643a31e71741f4de70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7734171795152900291

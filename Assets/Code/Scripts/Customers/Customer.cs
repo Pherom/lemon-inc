@@ -23,8 +23,6 @@ public class Customer : MonoBehaviour
     [SerializeField] bool tutorialOrderAddIngredient = true;
     [SerializeField] DrinkType tutorialOrderDrinkType = DrinkType.PINK_LEMONADE;
     [SerializeField] UnityEvent tutorialProceedToNextStep;
-    
-	[SerializeField] float waitAfterAcceptingOrder = 1f;
 
     private CustomerMessages messages; 
     private CustomerManager customerManager; 
@@ -63,14 +61,21 @@ public class Customer : MonoBehaviour
 
     public void HoverEntered()
     {
-        IsHoverEntered = true;
-        chatBubble.gameObject.SetActive(true);
+        CustomerNavMesh navMesh = GetComponentInParent<CustomerNavMesh>();
+        if (navMesh.IsUpNext)
+        {
+            IsHoverEntered = true;
+            chatBubble.gameObject.SetActive(true);
+        }
     }
     public void HoverExited()
     {
-        IsHoverEntered = false;
-        chatBubble.gameObject.SetActive(false);
-
+        CustomerNavMesh navMesh = GetComponentInParent<CustomerNavMesh>();
+        if (navMesh.IsUpNext)
+        {
+            IsHoverEntered = false;
+            chatBubble.gameObject.SetActive(false);
+        }
     }
     public void AttemptToTakeOrder()
     {

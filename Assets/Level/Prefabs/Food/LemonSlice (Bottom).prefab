@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4928389341872797193}
   - component: {fileID: 1611843856156631152}
   - component: {fileID: 2702057800670964647}
+  - component: {fileID: 3710016176391752442}
   m_Layer: 0
   m_Name: LemonSlice (Bottom)
   m_TagString: Untagged
@@ -1230,3 +1231,15 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &3710016176391752442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8213058370058868172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbb3d207e07ad643a31e71741f4de70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

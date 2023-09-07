@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 6100185690950304304}
   - component: {fileID: 7893485274290746063}
   - component: {fileID: -2760862706624137436}
+  - component: {fileID: -509571711213182000}
   m_Layer: 0
   m_Name: DrinkingGlass
   m_TagString: Empty Glass
@@ -411,5 +412,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1897dc31efb9b1f4bb7a165c3ec488fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-509571711213182000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2529732810025739947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbb3d207e07ad643a31e71741f4de70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

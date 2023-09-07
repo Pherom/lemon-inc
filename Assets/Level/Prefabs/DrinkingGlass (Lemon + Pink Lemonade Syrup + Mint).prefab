@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2728307796742536877}
   - component: {fileID: 1636713261496632570}
   - component: {fileID: -5310945606036503259}
+  - component: {fileID: 5237595494696641878}
   m_Layer: 0
   m_Name: DrinkingGlass (Lemon + Pink Lemonade Syrup + Mint)
   m_TagString: Minty Pink Lemonade
@@ -5735,6 +5736,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1897dc31efb9b1f4bb7a165c3ec488fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5237595494696641878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026003106727574640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbb3d207e07ad643a31e71741f4de70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3184800852903351679

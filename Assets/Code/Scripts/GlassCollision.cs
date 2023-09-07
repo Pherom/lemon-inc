@@ -26,7 +26,6 @@ public class GlassCollision : MonoBehaviour
         {
             int soundClipIndex = (int)Random.Range(0, shutterdGlassSFX.Length);
             source.PlayOneShot(shutterdGlassSFX[soundClipIndex]);
-            Destroy(gameObject,3);
         }
         //else if (other.gameObject.CompareTag("Sugar"))
         //{

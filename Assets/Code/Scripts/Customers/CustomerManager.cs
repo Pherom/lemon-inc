@@ -88,7 +88,8 @@ public class CustomerManager : MonoBehaviour
         }
         customerData.CustomerName = name;
 
-        spawned.GetComponentInChildren<CustomerMessages>().SetMessages(customerData.GetMessages());
+        CustomerMessages customerMessages = spawned.GetComponentInChildren<CustomerMessages>();
+        customerMessages.SetMessages(customerData.GetMessages());
 
         spawned.GetComponent<NavMeshAgent>().destination = customerLinePositions[customersInLineCount];
         if (customersAtTableCount < customerOrderContactPositions.Length)
@@ -97,6 +98,7 @@ public class CustomerManager : MonoBehaviour
             Debug.Log(string.Format("{0} joined the table :)", customerData.CustomerName));
             spawned.GetComponent<CustomerNavMesh>().OrderContactPosition = customerOrderContactPositions[customersAtTableCount];
             spawned.GetComponent<CustomerNavMesh>().IsUpNext = true;
+            customerMessages.ResetMessages();
             customersAtTableCount++;
         }
         else

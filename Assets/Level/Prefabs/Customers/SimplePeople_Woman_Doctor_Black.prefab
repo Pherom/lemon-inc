@@ -122,6 +122,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+  isTutorial: 0
+  tutorialOrderContactPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &-5892424636878456524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,18 +188,6 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3696376288969045530}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 7916476217421751530}
         m_TargetAssemblyTypeName: Customer, Assembly-CSharp
         m_MethodName: HoverEntered
@@ -210,18 +203,6 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3696376288969045530}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7916476217421751530}
         m_TargetAssemblyTypeName: Customer, Assembly-CSharp
         m_MethodName: HoverExited
@@ -2350,12 +2331,6 @@ PrefabInstance:
 --- !u!4 &1822278293305061133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5864328934404095565, guid: 7138ccb222bc3374683ead617f84bef2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5199476600645161280}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3696376288969045530 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8891348993494493018, guid: 7138ccb222bc3374683ead617f84bef2,
     type: 3}
   m_PrefabInstance: {fileID: 5199476600645161280}
   m_PrefabAsset: {fileID: 0}
