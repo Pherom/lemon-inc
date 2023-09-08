@@ -29,9 +29,23 @@ public class SetJuicerState : MonoBehaviour
         opened.SetActive(false);
     }
 
+
+
+    public void MakeHandleUnselectable(SelectEnterEventArgs args)
+    {
+        if (gameObject.GetComponent<XRSocketInteractor>().GetOldestInteractableSelected().transform.gameObject.CompareTag("Basic Lemonade"))
+        {
+            closed.GetComponent<XRSimpleInteractable>().enabled = false;
+        }
+    }
+
+    public void MakeHandleSelectable(SelectExitEventArgs args)
+    {
+        closed.GetComponent<XRSimpleInteractable>().enabled = true;
+    }
     public void ToggleState(SelectEnterEventArgs args)
     {
-        
+
         if (opened.activeSelf)
         {
             //Check if lemon in socket and drinking glass in socket
