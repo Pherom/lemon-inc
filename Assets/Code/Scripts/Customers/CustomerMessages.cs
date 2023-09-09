@@ -12,6 +12,8 @@ public class CustomerMessages : MonoBehaviour
     // What happens once the list is completed
     public UnityEvent OnComplete = new UnityEvent();
 
+    public UnityEvent OnAcceptOrder = new UnityEvent();
+
 
     [Tooltip("The list of messages that are shown")]
     [TextArea] public List<string> messages = new List<string>();
@@ -45,6 +47,7 @@ public class CustomerMessages : MonoBehaviour
             if (newIndex < this.index)
             {
                 this.OnComplete.Invoke();
+                this.OnAcceptOrder.Invoke();
                 this.index = 0;
             }
         }
@@ -78,12 +81,12 @@ public class CustomerMessages : MonoBehaviour
 
     }
 
-    public void SayThanks()
+    public void SayThanks(string thanksMessage = "Thank you!")
     {
-        string thanksMessage = "Thank u";
         this.messages.Clear();
         this.messages.Add(thanksMessage);
         this.messageOutput.text = thanksMessage;
+        this.messageOutput.fontSize = 12; 
     }
 
     public void ResetMessages()

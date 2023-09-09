@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.Events;
 
@@ -13,7 +12,6 @@ public class Customer : MonoBehaviour
         Female
     }
 
-    CustomerOrder order;
     [SerializeField] string[] welcomeMessages = {"Howdy", "Hi Pal", "Ma nishma", "Hi :)"};
     [SerializeField] GameObject chatBubble;
     [SerializeField] Gender gender;
@@ -23,9 +21,20 @@ public class Customer : MonoBehaviour
     [SerializeField] bool tutorialOrderAddIngredient = true;
     [SerializeField] DrinkType tutorialOrderDrinkType = DrinkType.PINK_LEMONADE;
     [SerializeField] UnityEvent tutorialProceedToNextStep;
+    [SerializeField] GameObject orderClipboardPrefab;
 
+    private static readonly int happyScoreThreshold = 0;
     private CustomerMessages messages; 
-    private CustomerManager customerManager; 
+    private CustomerManager customerManager;
+
+    private GameObject orderClipboard = null;
+
+    private static int[] happyEmojis = {15,19,21,25,26,33};
+    private static int[] sadEmojis = {10,11,20};
+    private CustomerOrder order;
+
+
+
 
     void Start()
     {
@@ -50,12 +59,13 @@ public class Customer : MonoBehaviour
     {
         if (isTutorial)
         {
-            order = new CustomerOrder(tutorialOrderSugarAmount, tutorialOrderAddIngredient, tutorialOrderDrinkType);
+            this.order = new CustomerOrder(tutorialOrderSugarAmount, tutorialOrderAddIngredient, tutorialOrderDrinkType);
         }
         else
         {
-            order = new CustomerOrder();
+            this.order = new CustomerOrder();
         }
+
     }
 
 
@@ -83,24 +93,56 @@ public class Customer : MonoBehaviour
 
         if (dispatchSocInt.hasSelection)
         {
+            GameObject drink = dispatchSocInt.GetOldestInteractableSelected().transform.gameObject;
+            OrderHolder orderSubmitted = drink.GetComponent<OrderHolder>();
+            chatBubble.gameObject.SetActive(true);
+            if(orderSubmitted != null)
+            {
+                int orderScore = CustomerOrder.Compare(this.order, orderSubmitted.GetOrderStatus());
+
+                int emojiIndex = 15; // Default happy emoji
+
+                if (orderScore >= Customer.happyScoreThreshold)
+                {
+                    emojiIndex = Customer.happyEmojis[Random.Range(0, Customer.happyEmojis.Length)];
+                    messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
+
+                }
+                else
+                {
+                    emojiIndex = Customer.sadEmojis[Random.Range(0, Customer.sadEmojis.Length)];
+                    messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
+
+                }
+            }
+            else
+            {
+                messages.SayThanks();
+
+            }
+
+            Destroy(drink);
+            transform.parent.gameObject.GetComponent<CustomerNavMesh>().IsDone = true;
+
             if (isTutorial)
             {
-				messages.SayThanks();
-                Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
-                Debug.Log(transform.parent.gameObject.name);
-                transform.parent.gameObject.GetComponent<CustomerNavMesh>().IsDone = true;
                 tutorialProceedToNextStep.Invoke();
             }
             else
             {
-				messages.SayThanks();
-            	Destroy(dispatchSocInt.GetOldestInteractableSelected().transform.gameObject);
-            	Debug.Log(transform.parent.gameObject.name);
-            	var customer =  transform.parent.gameObject;
-            	customerManager.SendCustomerAway(customer);
+                Invoke("sendCustomerAway", 1.5f);
             }
+
         }
     }
+
+
+    private void sendCustomerAway()
+    {
+        var customer = transform.parent.gameObject;
+        customerManager.SendCustomerAway(customer);
+    }
+
 
     public List<string> GetMessages()
     {
@@ -136,5 +178,39 @@ public class Customer : MonoBehaviour
         GameObject chatBubble = gameObject.transform.GetChild(0).gameObject;
         chatBubble.SetActive(true);
     }
+
+
+    public void CreateClipboardWithOrder()
+    {
+        if (this.orderClipboard == null)
+        {
+            Debug.Log("Creating clipboard for customer " + this.customerName);
+            Vector3 clipboardSpawnPosition = new Vector3(5.18f, 1.35f, -2.3f);
+            var clipboardSpawnRotation = Quaternion.Euler(new Vector3(270f, 230f, 309f));
+            this.orderClipboard = Instantiate(this.orderClipboardPrefab, clipboardSpawnPosition, clipboardSpawnRotation);
+            Clipboard clipboard = this.orderClipboard.GetComponent<Clipboard>();
+            clipboard.UpdateClipboard(customerName, this.order);
+        }
+    }
+
+
+    public void DeleteCustomerOrder()
+    {
+        if (this.orderClipboard)
+        {
+            Destroy(orderClipboard);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (this.orderClipboard)
+        {
+            Destroy(orderClipboard);
+        }
+    }
+
+
+
 
 }
