@@ -32,6 +32,7 @@ public class Customer : MonoBehaviour
     private static int[] happyEmojis = {15,19,21,25,26,33};
     private static int[] sadEmojis = {10,11,20};
     private CustomerOrder order;
+    private bool orderFinished = false;
 
 
 
@@ -72,7 +73,7 @@ public class Customer : MonoBehaviour
     public void HoverEntered()
     {
         CustomerNavMesh navMesh = GetComponentInParent<CustomerNavMesh>();
-        if (navMesh.IsUpNext)
+        if (navMesh.IsUpNext && !orderFinished)
         {
             IsHoverEntered = true;
             chatBubble.gameObject.SetActive(true);
@@ -81,7 +82,7 @@ public class Customer : MonoBehaviour
     public void HoverExited()
     {
         CustomerNavMesh navMesh = GetComponentInParent<CustomerNavMesh>();
-        if (navMesh.IsUpNext)
+        if (navMesh.IsUpNext && !orderFinished)
         {
             IsHoverEntered = false;
             chatBubble.gameObject.SetActive(false);
@@ -95,6 +96,7 @@ public class Customer : MonoBehaviour
         {
             GameObject drink = dispatchSocInt.GetOldestInteractableSelected().transform.gameObject;
             OrderHolder orderSubmitted = drink.GetComponent<OrderHolder>();
+            orderFinished = true;
             chatBubble.gameObject.SetActive(true);
             if(orderSubmitted != null)
             {
@@ -106,7 +108,6 @@ public class Customer : MonoBehaviour
                 {
                     emojiIndex = Customer.happyEmojis[Random.Range(0, Customer.happyEmojis.Length)];
                     messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
-
                 }
                 else
                 {
@@ -122,24 +123,34 @@ public class Customer : MonoBehaviour
             }
 
             Destroy(drink);
-            transform.parent.gameObject.GetComponent<CustomerNavMesh>().IsDone = true;
 
             if (isTutorial)
             {
+                transform.parent.gameObject.GetComponent<CustomerNavMesh>().IsDone = true;
                 tutorialProceedToNextStep.Invoke();
             }
             else
             {
-                Invoke("sendCustomerAway", 1.5f);
+                Invoke("sendCustomerAway", 2.3f);
             }
 
         }
+    }
+
+    public void LeaveOnTimerEnd()
+    {
+        int emojiIndex = Customer.sadEmojis[Random.Range(0, Customer.sadEmojis.Length)];
+        messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
+        orderFinished = true;
+        chatBubble.gameObject.SetActive(true);
+        Invoke("sendCustomerAway", 2.5f);
     }
 
 
     private void sendCustomerAway()
     {
         var customer = transform.parent.gameObject;
+        customer.GetComponent<CustomerNavMesh>().IsDone = true;
         customerManager.SendCustomerAway(customer);
     }
 
@@ -209,6 +220,9 @@ public class Customer : MonoBehaviour
             Destroy(orderClipboard);
         }
     }
+
+
+  
 
 
 

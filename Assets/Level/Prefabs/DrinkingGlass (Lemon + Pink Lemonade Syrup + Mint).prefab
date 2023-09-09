@@ -5641,7 +5641,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a6e6cb127e7044a3eaa8772d8a314706, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -12164,3 +12164,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sugaredLemonadePrefab: {fileID: 2531655125023401302, guid: cadea6f2d648ef64a93f76ee225054b0,
     type: 3}
+  audioSource: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpillSyrup : MonoBehaviour
 {
     private ParticleSystem syrupParticleSystem;
+    [SerializeField] AudioSource source;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class SpillSyrup : MonoBehaviour
             if (!syrupParticleSystem.isPlaying)
             {
                 syrupParticleSystem.Play();
+                source.Play();
             }
         }
         else
@@ -26,6 +28,7 @@ public class SpillSyrup : MonoBehaviour
             if (syrupParticleSystem.isPlaying)
             {
                 syrupParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                source.Stop();
             }
         }
     }

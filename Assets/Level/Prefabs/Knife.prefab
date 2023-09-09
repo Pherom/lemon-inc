@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3636296024463291468}
   - component: {fileID: 3636296024463291467}
   - component: {fileID: 3636296024463291471}
+  - component: {fileID: 1879744530518123828}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Slicer
@@ -272,3 +273,15 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &1879744530518123828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636296024463323872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42282fc1aa9de9344b72135683b98422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

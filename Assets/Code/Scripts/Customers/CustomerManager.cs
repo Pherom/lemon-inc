@@ -119,6 +119,7 @@ public class CustomerManager : MonoBehaviour
 
     public void SendCustomerAway(GameObject customer)
     {
+        
         for (int i = 0; i < customersWaitingAtTable.Length; i++)
         {
             if (customersWaitingAtTable[i] == customer)
@@ -140,6 +141,7 @@ public class CustomerManager : MonoBehaviour
 
                 Customer customerData = customer.GetComponentInChildren<Customer>();
                 customerData.DeleteCustomerOrder();
+            
                 if (customerData.CustomerGender == Customer.Gender.Male)
                 {
                     customerAvailableMaleNames.Add(customerData.CustomerName);

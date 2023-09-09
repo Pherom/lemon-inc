@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class LeaveOnTimerEnd : MonoBehaviour
 {
-    private GameObject customerManager;
+    private CustomerManager customerManager;
 
     private void Start()
     {
-        customerManager = GameObject.Find("CustomerManager");
+        customerManager = GameObject.Find("CustomerManager").GetComponent<CustomerManager>();
     }
 
     public void Leave()
     {
-        customerManager.GetComponent<CustomerManager>().SendCustomerAway(transform.parent.gameObject);
+        customerManager.SendCustomerAway(transform.parent.gameObject);
+        GameObject customer = transform.parent.gameObject;
+        Customer customerData = customer.GetComponentInChildren<Customer>();
+        customerData.LeaveOnTimerEnd();
     }
 }

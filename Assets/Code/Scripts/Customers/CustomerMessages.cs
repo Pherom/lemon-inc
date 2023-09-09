@@ -86,7 +86,10 @@ public class CustomerMessages : MonoBehaviour
         this.messages.Clear();
         this.messages.Add(thanksMessage);
         this.messageOutput.text = thanksMessage;
-        this.messageOutput.fontSize = 12; 
+        if (thanksMessage != "Thank you!")
+        {
+            this.messageOutput.fontSize = 12;
+        }
     }
 
     public void ResetMessages()
