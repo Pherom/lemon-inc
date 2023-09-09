@@ -29,7 +29,8 @@ public class SliceableObject : MonoBehaviour, ISliceable
     public void OnTriggerEnter(Collider other)
     {
         Knife knife = other.GetComponent<Knife>();
-        if (other.CompareTag("Slicer"))
+        if (knife == null) return; 
+        if (knife.IsKnifeSelected())
         {
             knife.SendVibrationsToContoller();
             Slice();
