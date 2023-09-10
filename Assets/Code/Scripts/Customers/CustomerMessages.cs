@@ -12,7 +12,6 @@ public class CustomerMessages : MonoBehaviour
     // What happens once the list is completed
     public UnityEvent OnComplete = new UnityEvent();
 
-    public UnityEvent OnAcceptOrder = new UnityEvent();
 
 
     [Tooltip("The list of messages that are shown")]
@@ -47,7 +46,6 @@ public class CustomerMessages : MonoBehaviour
             if (newIndex < this.index)
             {
                 this.OnComplete.Invoke();
-                this.OnAcceptOrder.Invoke();
                 this.index = 0;
             }
         }

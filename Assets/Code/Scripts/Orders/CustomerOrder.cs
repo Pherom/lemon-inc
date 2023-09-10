@@ -26,7 +26,9 @@ public class CustomerOrder : UnityEngine.Object
     public static int Compare(CustomerOrder order1, CustomerOrder order2)
     {
         int result = 0;
-        if (order1 == null || order2 == null) return result;
+
+        Debug.Log("order1:" + order1.ToString());
+        Debug.Log("order2:" + order2.ToString());
 
         if (order1.GetDrinkType() == order2.GetDrinkType())
         {

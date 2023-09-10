@@ -140,7 +140,6 @@ public class CustomerManager : MonoBehaviour
                 spawnCustomer();
 
                 Customer customerData = customer.GetComponentInChildren<Customer>();
-                customerData.DeleteCustomerOrder();
             
                 if (customerData.CustomerGender == Customer.Gender.Male)
                 {

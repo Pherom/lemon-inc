@@ -5,7 +5,7 @@ using UnityEngine;
 public class OrderHolder : MonoBehaviour
 {
     // Start is called before the first frame update
-    CustomerOrder orderStatus = CustomerOrder.GetEmptyOrder();
+    private CustomerOrder orderStatus = CustomerOrder.GetEmptyOrder();
 
     public CustomerOrder GetOrderStatus() { return orderStatus; }
 

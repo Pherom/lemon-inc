@@ -23,7 +23,8 @@ public class Customer : MonoBehaviour
     [SerializeField] UnityEvent tutorialProceedToNextStep;
     [SerializeField] GameObject orderClipboardPrefab;
 
-    private static readonly int happyScoreThreshold = 0;
+    private static readonly int happyScoreThreshold = 12;
+    private static readonly float waitingIntervalBeforeLeaving = 2.5f;
     private CustomerMessages messages; 
     private CustomerManager customerManager;
 
@@ -96,6 +97,7 @@ public class Customer : MonoBehaviour
         {
             GameObject drink = dispatchSocInt.GetOldestInteractableSelected().transform.gameObject;
             OrderHolder orderSubmitted = drink.GetComponent<OrderHolder>();
+       
             orderFinished = true;
             chatBubble.gameObject.SetActive(true);
             if(orderSubmitted != null)
@@ -123,6 +125,7 @@ public class Customer : MonoBehaviour
             }
 
             Destroy(drink);
+            DestroyOrderClipboard();
 
             if (isTutorial)
             {
@@ -131,9 +134,14 @@ public class Customer : MonoBehaviour
             }
             else
             {
-                Invoke("sendCustomerAway", 2.3f);
+                Invoke("sendCustomerAway", waitingIntervalBeforeLeaving);
             }
 
+        }
+        else
+        {
+            // Creating clipboard with order details if no order to take from Dispatch
+            CreateClipboardWithOrder();
         }
     }
 
@@ -143,7 +151,8 @@ public class Customer : MonoBehaviour
         messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
         orderFinished = true;
         chatBubble.gameObject.SetActive(true);
-        Invoke("sendCustomerAway", 2.5f);
+        DestroyOrderClipboard();
+        Invoke("sendCustomerAway", waitingIntervalBeforeLeaving);
     }
 
 
@@ -160,6 +169,7 @@ public class Customer : MonoBehaviour
         List<string> msgs = new List<string>();
         int index = Random.Range(0, welcomeMessages.Length);
         string welcomeMessage = welcomeMessages[index] + "\nMy name is " + customerName;
+        if (customerName == "Joey") { welcomeMessage = "My FRIENDS Call Me Joey ;)\nHOW YOU DOIN?!"; }
         msgs.Add(welcomeMessage);
         string drink_type = order.GetDrinkType().ToString().ToLower();
         int sugar_count = order.GetSugarCount();
@@ -193,29 +203,31 @@ public class Customer : MonoBehaviour
 
     public void CreateClipboardWithOrder()
     {
-        if (this.orderClipboard == null)
+        if (this.orderClipboard != null)
         {
-            Debug.Log("Creating clipboard for customer " + this.customerName);
-            Vector3 clipboardSpawnPosition = new Vector3(5.18f, 1.35f, -2.3f);
-            var clipboardSpawnRotation = Quaternion.Euler(new Vector3(270f, 230f, 309f));
-            this.orderClipboard = Instantiate(this.orderClipboardPrefab, clipboardSpawnPosition, clipboardSpawnRotation);
-            Clipboard clipboard = this.orderClipboard.GetComponent<Clipboard>();
-            clipboard.UpdateClipboard(customerName, this.order);
+            Destroy(orderClipboard);
         }
+        Debug.Log("Creating clipboard for customer " + this.customerName);
+        Vector3 clipboardSpawnPosition = new Vector3(5.18f, 1.35f, -2.3f);
+        var clipboardSpawnRotation = Quaternion.Euler(new Vector3(270f, 230f, 309f));
+        this.orderClipboard = Instantiate(this.orderClipboardPrefab, clipboardSpawnPosition, clipboardSpawnRotation);
+        Clipboard clipboard = this.orderClipboard.GetComponent<Clipboard>();
+        clipboard.UpdateClipboard(customerName, this.order);
     }
 
 
-    public void DeleteCustomerOrder()
+    public void DestroyOrderClipboard()
     {
-        if (this.orderClipboard)
+        if (this.orderClipboard != null)
         {
             Destroy(orderClipboard);
+            this.orderClipboard = null;
         }
     }
 
     private void OnDestroy()
     {
-        if (this.orderClipboard)
+        if (this.orderClipboard != null)
         {
             Destroy(orderClipboard);
         }

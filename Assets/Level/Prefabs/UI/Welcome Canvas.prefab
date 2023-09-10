@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 252025099}
   - component: {fileID: 252025098}
   - component: {fileID: 252025097}
+  - component: {fileID: 252025100}
   m_Layer: 0
   m_Name: Tutorial
   m_TagString: Untagged
@@ -121,7 +122,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 252025098}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252025100}
+        m_TargetAssemblyTypeName: StartTutorial, Assembly-CSharp
+        m_MethodName: BeginTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &252025100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252025095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c71f83a8a73b7c43969d05f8cf377a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialScenePath: Level/Scenes/TutorialScene
 --- !u!1 &1470153793
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +350,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: We will guide you on how to make your first lemonade in VR :)
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -433,6 +459,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MusicPlayer, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   UpdateButtonText:
     m_PersistentCalls:
       m_Calls:
@@ -449,6 +487,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   messages:
+  - We will guide you on how to make your first lemonade in VR :)
   - Pick up a knife with the Grip Trigger
   - Grab a lemon from the box and put it on the cutting board
   - Cut the lemon

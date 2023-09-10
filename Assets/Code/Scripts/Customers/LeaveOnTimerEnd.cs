@@ -13,7 +13,6 @@ public class LeaveOnTimerEnd : MonoBehaviour
 
     public void Leave()
     {
-        customerManager.SendCustomerAway(transform.parent.gameObject);
         GameObject customer = transform.parent.gameObject;
         Customer customerData = customer.GetComponentInChildren<Customer>();
         customerData.LeaveOnTimerEnd();
