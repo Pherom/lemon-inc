@@ -94,6 +94,7 @@ public class Customer : MonoBehaviour
     public void AttemptToTakeOrder()
     {
         XRSocketInteractor dispatchSocInt = GameObject.FindGameObjectWithTag("Dispatch").GetComponent<XRSocketInteractor>();
+        PiggyBank piggyBank = GameObject.FindGameObjectWithTag("Piggy Bank").GetComponent<PiggyBank>();
 
         if (dispatchSocInt.hasSelection)
         {
@@ -112,6 +113,7 @@ public class Customer : MonoBehaviour
                 {
                     emojiIndex = Customer.happyEmojis[Random.Range(0, Customer.happyEmojis.Length)];
                     messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
+                    piggyBank.IncreaseContents(orderScore * piggyBank.ScoreToCashMultiplier);
                     saleSuccessful.Invoke();
                 }
                 else
