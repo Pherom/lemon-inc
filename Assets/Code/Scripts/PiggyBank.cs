@@ -15,6 +15,9 @@ public class PiggyBank : MonoBehaviour
     [SerializeField]
     private GameObject cashInfoObject;
 
+    [SerializeField]
+    private GameObject cashTotalCanvasObject;
+
     public float ScoreToCashMultiplier
     {
         get { return scoreToCashMultiplier; }
@@ -26,5 +29,6 @@ public class PiggyBank : MonoBehaviour
         cashAddedText.text = string.Format("+${0:0.##}", amount);
         GetComponentInChildren<Animator>().Play(0);
         contents += amount;
+        cashTotalCanvasObject.GetComponentInChildren<TextMeshProUGUI>().text = string.Format("${0:0.##}", contents);
     }
 }
