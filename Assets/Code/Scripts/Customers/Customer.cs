@@ -22,6 +22,8 @@ public class Customer : MonoBehaviour
     [SerializeField] DrinkType tutorialOrderDrinkType = DrinkType.PINK_LEMONADE;
     [SerializeField] UnityEvent tutorialProceedToNextStep;
     [SerializeField] GameObject orderClipboardPrefab;
+    [SerializeField] UnityEvent saleSuccessful;
+    [SerializeField] UnityEvent saleFailed;
 
     private static readonly int happyScoreThreshold = 12;
     private static readonly float waitingIntervalBeforeLeaving = 1f;
@@ -110,12 +112,13 @@ public class Customer : MonoBehaviour
                 {
                     emojiIndex = Customer.happyEmojis[Random.Range(0, Customer.happyEmojis.Length)];
                     messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
+                    saleSuccessful.Invoke();
                 }
                 else
                 {
                     emojiIndex = Customer.sadEmojis[Random.Range(0, Customer.sadEmojis.Length)];
                     messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
-
+                    saleFailed.Invoke();
                 }
             }
             else
