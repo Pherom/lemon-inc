@@ -31,4 +31,5 @@ public class PiggyBank : MonoBehaviour
         contents += amount;
         cashTotalCanvasObject.GetComponentInChildren<TextMeshProUGUI>().text = string.Format("${0:0.##}", contents);
     }
+
 }

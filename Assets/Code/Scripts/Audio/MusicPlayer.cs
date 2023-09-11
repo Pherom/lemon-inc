@@ -6,10 +6,16 @@ public class MusicPlayer : MonoBehaviour
 {
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip [] songs;
+    [SerializeField] float musicVolume = 0.65f;
 
     private int currentSongIndex = 0;
     // Start is called before the first frame update
 
+
+    private void Start()
+    {
+        source.volume = musicVolume;
+    }
 
     public void Play()
     {
@@ -29,6 +35,21 @@ public class MusicPlayer : MonoBehaviour
     public void Stop()
     {
         source.Stop();
+    }
+
+    public void LowerMusicVolume()
+    {
+        source.volume = 0.3f;
+    }
+
+    public void IncreaseMusicVolume()
+    {
+        Invoke("increaseVolume", 2.5f);
+    }
+
+    private void increaseVolume()
+    {
+        source.volume = musicVolume;
     }
 
 }
