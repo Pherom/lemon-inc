@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2735014587159639466}
   - component: {fileID: 3484522672049384304}
   - component: {fileID: 3942335579538724917}
+  - component: {fileID: 5313588336714501488}
+  - component: {fileID: -8084277360064048148}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -48,10 +50,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   welcomeMessages:
-  - Howdy
+  - Howdy!
   - Hi Pal
-  - Ma nishma
+  - How's it going?
   - Hi :)
+  - Hi there!
+  - Nice to meet you.
   chatBubble: {fileID: 8891348993494493018}
   gender: 0
   customerName: 
@@ -64,6 +68,36 @@ MonoBehaviour:
       m_Calls: []
   orderClipboardPrefab: {fileID: 8805088627118892333, guid: 806ce9850944d1b43adc8e781bd9054c,
     type: 3}
+  saleSuccessful:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5313588336714501488}
+        m_TargetAssemblyTypeName: PlaySoundFromXRRig, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  saleFailed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -8084277360064048148}
+        m_TargetAssemblyTypeName: PlaySoundFromXRRig, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsHoverEntered: 0
 --- !u!114 &3484522672049384304
 MonoBehaviour:
@@ -84,21 +118,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2735014587159639466}
         m_TargetAssemblyTypeName: Customer, Assembly-CSharp
         m_MethodName: AttemptToTakeOrder
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnAcceptOrder:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2735014587159639466}
-        m_TargetAssemblyTypeName: Customer, Assembly-CSharp
-        m_MethodName: CreateClipboardWithOrder
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -166,6 +185,32 @@ MonoBehaviour:
   OnRelease:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5313588336714501488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243924960369859365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c18f4c04e1e11949981e1461c8b4532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipToPlay: {fileID: 8300000, guid: fbd5584ea68e0f249b4ac1b47897bb6f, type: 3}
+--- !u!114 &-8084277360064048148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6243924960369859365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c18f4c04e1e11949981e1461c8b4532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipToPlay: {fileID: 8300000, guid: f79b4dade5d8bce4ebad45c54292e9d5, type: 3}
 --- !u!1001 &8335954034362645870
 PrefabInstance:
   m_ObjectHideFlags: 0

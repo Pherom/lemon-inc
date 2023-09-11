@@ -22,9 +22,11 @@ public class Customer : MonoBehaviour
     [SerializeField] DrinkType tutorialOrderDrinkType = DrinkType.PINK_LEMONADE;
     [SerializeField] UnityEvent tutorialProceedToNextStep;
     [SerializeField] GameObject orderClipboardPrefab;
+    [SerializeField] UnityEvent saleSuccessful;
+    [SerializeField] UnityEvent saleFailed;
 
     private static readonly int happyScoreThreshold = 12;
-    private static readonly float waitingIntervalBeforeLeaving = 2.5f;
+    private static readonly float waitingIntervalBeforeLeaving = 1f;
     private CustomerMessages messages; 
     private CustomerManager customerManager;
 
@@ -92,6 +94,7 @@ public class Customer : MonoBehaviour
     public void AttemptToTakeOrder()
     {
         XRSocketInteractor dispatchSocInt = GameObject.FindGameObjectWithTag("Dispatch").GetComponent<XRSocketInteractor>();
+        PiggyBank piggyBank = GameObject.FindGameObjectWithTag("Piggy Bank").GetComponent<PiggyBank>();
 
         if (dispatchSocInt.hasSelection)
         {
@@ -110,12 +113,14 @@ public class Customer : MonoBehaviour
                 {
                     emojiIndex = Customer.happyEmojis[Random.Range(0, Customer.happyEmojis.Length)];
                     messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
+                    piggyBank.IncreaseContents(orderScore * piggyBank.ScoreToCashMultiplier);
+                    saleSuccessful.Invoke();
                 }
                 else
                 {
                     emojiIndex = Customer.sadEmojis[Random.Range(0, Customer.sadEmojis.Length)];
                     messages.SayThanks(string.Format("<sprite index={0}>", emojiIndex));
-
+                    saleFailed.Invoke();
                 }
             }
             else
