@@ -24,7 +24,7 @@ public class Customer : MonoBehaviour
     [SerializeField] GameObject orderClipboardPrefab;
 
     private static readonly int happyScoreThreshold = 12;
-    private static readonly float waitingIntervalBeforeLeaving = 2.5f;
+    private static readonly float waitingIntervalBeforeLeaving = 1f;
     private CustomerMessages messages; 
     private CustomerManager customerManager;
 

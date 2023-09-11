@@ -484,8 +484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerPrefab: {fileID: 1288469008436352089, guid: 3b330ea98263e004aab466b1d208288f,
     type: 3}
-  minTimeInSeconds: 45
-  maxTimeInSeconds: 60
+  minTimeInSeconds: 60
+  maxTimeInSeconds: 75
 --- !u!65 &-8812987522379665942
 BoxCollider:
   m_ObjectHideFlags: 0
