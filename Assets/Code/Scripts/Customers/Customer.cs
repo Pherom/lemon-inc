@@ -85,7 +85,7 @@ public class Customer : MonoBehaviour
     public void HoverExited()
     {
         CustomerNavMesh navMesh = GetComponentInParent<CustomerNavMesh>();
-        if (navMesh.IsUpNext && !orderFinished)
+        if (navMesh.IsUpNext && !orderFinished && !GetComponentInParent<XRSimpleInteractable>().isHovered)
         {
             IsHoverEntered = false;
             chatBubble.gameObject.SetActive(false);

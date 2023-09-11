@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -8923095048652624837}
   - component: {fileID: -14306339509663519}
   - component: {fileID: 1238177841375963844}
-  - component: {fileID: -1305335286375964513}
   - component: {fileID: -8647206081699346643}
   m_Layer: 0
   m_Name: SimplePeople_Man_Business_White
@@ -157,19 +156,6 @@ MonoBehaviour:
     type: 3}
   minTimeInSeconds: 30
   maxTimeInSeconds: 45
---- !u!65 &-1305335286375964513
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 3.5, z: 1}
-  m_Center: {x: -0.02, y: 1.5, z: 0}
 --- !u!114 &-8647206081699346643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders:
-  - {fileID: -1305335286375964513}
+  - {fileID: 1307065277103204892}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295

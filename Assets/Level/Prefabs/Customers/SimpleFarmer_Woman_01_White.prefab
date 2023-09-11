@@ -365,7 +365,6 @@ GameObject:
   - component: {fileID: 6989745248934771119}
   - component: {fileID: -6690037536261120203}
   - component: {fileID: -9144312433355086564}
-  - component: {fileID: -4104337194412284569}
   - component: {fileID: 2034351282945204609}
   m_Layer: 0
   m_Name: SimpleFarmer_Woman_01_White
@@ -500,19 +499,6 @@ MonoBehaviour:
     type: 3}
   minTimeInSeconds: 60
   maxTimeInSeconds: 75
---- !u!65 &-4104337194412284569
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100046}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 3.5, z: 1}
-  m_Center: {x: -0.02, y: 1.5, z: 0}
 --- !u!114 &2034351282945204609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders:
-  - {fileID: -4104337194412284569}
+  - {fileID: 5101221856717013610}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
