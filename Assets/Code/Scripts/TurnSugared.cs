@@ -7,6 +7,10 @@ public class TurnSugared : MonoBehaviour
     [SerializeField]
     private GameObject sugaredLemonadePrefab;
 
+    [SerializeField]
+    AudioSource audioSource;
+
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Sugar"))
@@ -18,8 +22,22 @@ public class TurnSugared : MonoBehaviour
             {
                 Destroy(transform.parent.gameObject);
                 GameObject newDrink = Instantiate(sugaredLemonadePrefab, transform.parent.transform.position, transform.parent.transform.rotation);
+                newDrink.GetComponentInChildren<TurnSugared>().PlayWaterDropSFX();
                 newDrink.GetComponent<OrderHolder>().SetOrderStatus(orderStatus);
             }
+            else
+            {
+                PlayWaterDropSFX();
+            }
+        }
+    }
+
+
+    public void PlayWaterDropSFX()
+    {
+        if (this.audioSource != null)
+        {
+            this.audioSource.Play();
         }
     }
 }

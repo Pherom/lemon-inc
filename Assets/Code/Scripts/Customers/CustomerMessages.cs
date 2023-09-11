@@ -13,6 +13,7 @@ public class CustomerMessages : MonoBehaviour
     public UnityEvent OnComplete = new UnityEvent();
 
 
+
     [Tooltip("The list of messages that are shown")]
     [TextArea] public List<string> messages = new List<string>();
     [SerializeField] Customer customer;
@@ -78,12 +79,15 @@ public class CustomerMessages : MonoBehaviour
 
     }
 
-    public void SayThanks()
+    public void SayThanks(string thanksMessage = "Thank you!")
     {
-        string thanksMessage = "Thank u";
         this.messages.Clear();
         this.messages.Add(thanksMessage);
         this.messageOutput.text = thanksMessage;
+        if (thanksMessage != "Thank you!")
+        {
+            this.messageOutput.fontSize = 12;
+        }
     }
 
     public void ResetMessages()

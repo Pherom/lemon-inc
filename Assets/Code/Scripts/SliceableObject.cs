@@ -7,6 +7,7 @@ public class SliceableObject : MonoBehaviour, ISliceable
 {
     public Transform pfSliced;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,11 @@ public class SliceableObject : MonoBehaviour, ISliceable
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Slicer") == true)
+        Knife knife = other.GetComponent<Knife>();
+        if (knife == null) return; 
+        if (knife.IsKnifeSelected())
         {
+            knife.SendVibrationsToContoller();
             Slice();
         }
     }

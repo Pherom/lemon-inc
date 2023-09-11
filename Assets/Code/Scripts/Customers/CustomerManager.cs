@@ -23,10 +23,7 @@ public class CustomerManager : MonoBehaviour
     private GameObject[] customersWaitingInLine;
     private GameObject[] customersWaitingAtTable;
 
-    [SerializeField]
-    private bool debugSendCustomerAway = false;
-    [SerializeField]
-    private GameObject debugSendCustomerAwayGO;
+
 
     [SerializeField]
     private List<string> customerAvailableMaleNames = new List<string>();
@@ -48,11 +45,6 @@ public class CustomerManager : MonoBehaviour
             if (customersInLineCount < customerLinePositions.Length)
             {
                 spawnCustomer();
-            }
-
-            if (debugSendCustomerAway)
-            {
-                SendCustomerAway(debugSendCustomerAwayGO);
             }
         }
     }
@@ -127,12 +119,12 @@ public class CustomerManager : MonoBehaviour
 
     public void SendCustomerAway(GameObject customer)
     {
+        
         for (int i = 0; i < customersWaitingAtTable.Length; i++)
         {
             if (customersWaitingAtTable[i] == customer)
             {
                 customer.GetComponent<CustomerNavMesh>().IsDone = true;
-
                 customersWaitingAtTable[i] = customersWaitingInLine[0];
                 customersWaitingAtTable[i].GetComponent<CustomerNavMesh>().OrderContactPosition = customerOrderContactPositions[i];
                 customersWaitingAtTable[i].GetComponent<CustomerNavMesh>().IsUpNext = true;
@@ -146,9 +138,9 @@ public class CustomerManager : MonoBehaviour
                 customersInLineCount--;
 
                 spawnCustomer();
-                debugSendCustomerAway = false;
 
-                var customerData = customer.GetComponentInChildren<Customer>();
+                Customer customerData = customer.GetComponentInChildren<Customer>();
+            
                 if (customerData.CustomerGender == Customer.Gender.Male)
                 {
                     customerAvailableMaleNames.Add(customerData.CustomerName);
@@ -162,4 +154,5 @@ public class CustomerManager : MonoBehaviour
             }
         }
     }
+
 }

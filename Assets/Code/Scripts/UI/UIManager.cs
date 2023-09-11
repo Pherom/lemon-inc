@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Canvas resetCanvas;
     [SerializeField] Canvas welcomeCanvas;
     [SerializeField] Canvas orderSummaryCanvas;
+    [SerializeField] float displayOrderSummaryDuration = 1.8f;
 
    
     public void DisplayOrderSummary(SelectEnterEventArgs args)
@@ -35,7 +36,7 @@ public class UIManager : MonoBehaviour
     private IEnumerator ShowOrderSummary()
     {
         orderSummaryCanvas.gameObject.SetActive(true);
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(displayOrderSummaryDuration);
         orderSummaryCanvas.gameObject.SetActive(false);
     }
 
